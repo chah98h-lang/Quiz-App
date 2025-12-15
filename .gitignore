@@ -1,0 +1,18 @@
+# PDF 파일 (용량이 크고 저작권)
+*.pdf
+
+# Python 스크립트
+extract_*.py
+*.pyc
+__pycache__/
+
+# 임시 파일
+*.txt
+raw_*.txt
+
+# 환경 파일
+.env
+.venv/
+venv/
+node_modules/
+

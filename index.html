@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AZ-900 Azure Fundamentals 한글 퀴즈 학습 앱">
+    <title>AZ-900 Quiz Master | Azure Fundamentals</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">
+                    <span class="logo-icon">☁️</span>
+                    <span class="logo-text">AZ-900 Quiz Master</span>
+                </h1>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">진행률</span>
+                        <span class="stat-value" id="progressText">0/0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">정답률</span>
+                        <span class="stat-value" id="scoreText">0%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+        </header>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="control-btn" id="shuffleBtn" title="문제 섞기">
+                <span>🔀</span>
+            </button>
+            <button class="control-btn" id="bookmarkBtn" title="북마크">
+                <span id="bookmarkIcon">🤍</span>
+            </button>
+            <button class="control-btn" id="searchBtn" title="검색">
+                <span>🔍</span>
+            </button>
+        </div>
+
+        <!-- Search Box -->
+        <div class="search-box" id="searchBox">
+            <input type="text" id="searchInput" placeholder="문제 검색...">
+            <button id="searchCloseBtn">✕</button>
+        </div>
+
+        <!-- Card Container -->
+        <div class="card-container">
+            <!-- Quiz Mode -->
+            <div class="quiz-card" id="quizCard">
+                <div class="card-header">
+                    <span class="question-number" id="quizQuestionNumber">Q1</span>
+                </div>
+                <div class="card-content">
+                    <p class="question-text" id="quizQuestionText">문제를 불러오는 중...</p>
+                    <div class="options-container" id="optionsContainer">
+                        <!-- Options will be inserted here -->
+                    </div>
+                    <div class="quiz-feedback hidden" id="quizFeedback">
+                        <div class="feedback-content" id="feedbackContent"></div>
+                        <div class="explanation" id="quizExplanation"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn">
+                <span class="nav-icon">←</span>
+                <span class="nav-text">이전</span>
+            </button>
+            <div class="question-indicator" id="questionIndicator">1 / 10</div>
+            <button class="nav-btn" id="nextBtn">
+                <span class="nav-text">다음</span>
+                <span class="nav-icon">→</span>
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Microsoft Azure Fundamentals (AZ-900) 학습 도구</p>
+            <p class="footer-hint">키보드: ← → 이동 | S 섞기 | B 북마크</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
