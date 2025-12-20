@@ -798,6 +798,20 @@ body {
     .question-jump-buttons {
         gap: 0.3rem;
     }
+
+    .question-text {
+        font-size: 1.05rem; /* Reduced from 1.25rem for mobile */
+    }
+
+    .option-btn {
+        font-size: 0.9rem; /* Reduced for mobile */
+        padding: var(--spacing-sm) var(--spacing-md); /* Reduced padding */
+    }
+
+    .option-btn.submit-btn {
+        font-size: 1rem; /* Specific size for submit button */
+        padding: 0.8rem; /* Slightly reduced padding */
+    }
     
     .jump-btn {
         padding: 0.35rem 0.65rem;
