@@ -1442,4 +1442,18 @@ body {
         font-size: 0.85rem;
         margin-left: 0.3rem;
     }
+
+    /* Reduce spacing between jump buttons and controls */
+    .header {
+        margin-bottom: 1rem;
+        /* Reduced from 2rem */
+    }
+
+    .question-jump-buttons {
+        margin-bottom: 0.5rem;
+    }
+
+    .controls {
+        margin-bottom: 1rem;
+    }
 }
