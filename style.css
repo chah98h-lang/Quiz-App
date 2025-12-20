@@ -137,7 +137,8 @@ body {
 .container {
     max-width: 900px;
     margin: 0 auto;
-    padding: var(--spacing-lg);
+    padding: var(--spacing-lg) var(--spacing-sm);
+    /* Reduced horizontal padding for PC alignment */
     position: relative;
     z-index: 1;
 }
@@ -1455,5 +1456,18 @@ body {
 
     .controls {
         margin-bottom: 1rem;
+    }
+
+    /* Move logo further left by reducing container padding */
+    .container {
+        padding: var(--spacing-sm);
+        /* Reduced to 1rem */
+    }
+
+    .logo {
+        gap: 0.5rem;
+        /* Reduced gap between icon and text */
+        margin-left: -0.5rem;
+        /* Negative margin to pull closer to edge */
     }
 }
