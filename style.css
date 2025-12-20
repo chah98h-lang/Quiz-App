@@ -786,7 +786,8 @@ body {
 
     .header-stats {
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-end;
+        /* Changed from space-between to flex-end */
     }
 
     .logo {
