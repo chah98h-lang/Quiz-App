@@ -1461,13 +1461,12 @@ body {
     /* Move logo further left by reducing container padding */
     .container {
         padding: var(--spacing-sm);
-        /* Reduced to 1rem */
     }
 
     .logo {
         gap: 0.5rem;
         /* Reduced gap between icon and text */
-        margin-left: -0.5rem;
-        /* Negative margin to pull closer to edge */
+        margin-left: -1rem;
+        /* Aggressive negative margin to pull to edge covering padding */
     }
 }
