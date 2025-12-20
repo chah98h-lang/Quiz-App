@@ -792,9 +792,7 @@ body {
         font-size: 1.5rem;
     }
 
-    .question-text {
-        font-size: 1.25rem;
-    }
+
 
     .flashcard-front,
     .flashcard-back,
@@ -816,8 +814,8 @@ body {
     }
 
     .question-text {
-        font-size: 1rem;
-        /* Reduced: 1.25 -> 1.05 -> 1.0rem */
+        font-size: 0.9rem;
+        /* Reduced: 1.25 -> 1.05 -> 0.9rem */
     }
 
     .option-btn {
