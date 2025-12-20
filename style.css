@@ -1429,4 +1429,17 @@ body {
         font-size: 0.85rem;
         padding: var(--spacing-xs);
     }
+
+    /* Search Box optimization for mobile */
+    .search-box input {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
+
+    .search-next-btn,
+    #searchCloseBtn {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.85rem;
+        margin-left: 0.3rem;
+    }
 }
