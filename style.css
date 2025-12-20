@@ -461,8 +461,8 @@ body {
     align-items: center;
     margin-bottom: 1rem;
     /* Reduced from var(--spacing-lg) */
-    padding-bottom: 1rem;
-    /* Reduced to match mobile top padding for centering */
+    padding-bottom: 0;
+    /* Removed padding as requested */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
