@@ -783,14 +783,18 @@ body {
     }
 
     .header-content {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        /* Changed back to row */
+        align-items: center;
+        flex-wrap: nowrap;
+        /* Prevent wrapping */
+        gap: 0.5rem;
     }
 
     .header-stats {
-        width: 100%;
+        width: auto;
+        /* Allow sizing to content */
         justify-content: flex-end;
-        /* Changed from space-between to flex-end */
     }
 
     .logo {
