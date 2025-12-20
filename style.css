@@ -459,7 +459,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: 1rem;
+    /* Reduced from var(--spacing-lg) */
     padding-bottom: var(--spacing-md);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -544,7 +545,8 @@ body {
     background: var(--bg-card);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--radius-xl);
-    padding: var(--spacing-xl);
+    padding: 1.5rem;
+    /* Reduced from var(--spacing-xl) */
     backdrop-filter: blur(20px);
     box-shadow: var(--shadow-lg);
     min-height: 400px;
@@ -799,7 +801,8 @@ body {
     .flashcard-front,
     .flashcard-back,
     .quiz-card {
-        padding: var(--spacing-md);
+        padding: 1rem;
+        /* Reduced from var(--spacing-md) */
         min-height: 350px;
     }
 
