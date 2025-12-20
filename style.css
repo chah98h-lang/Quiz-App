@@ -798,7 +798,23 @@ body {
     }
 
     .logo {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
+        /* Reduced from 1.5rem for mobile */
+    }
+
+    .stat-label {
+        font-size: 0.6rem;
+        /* Reduced from 0.7rem */
+    }
+
+    .stat-value {
+        font-size: 0.9rem;
+        /* Reduced from 1.1rem */
+    }
+
+    .question-number {
+        font-size: 1rem;
+        /* Reduced from 1.25rem */
     }
 
 
