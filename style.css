@@ -799,8 +799,6 @@ body {
 
     .logo {
         font-size: 1.5rem;
-        margin-left: 0;
-        /* Reset margin */
     }
 
 
@@ -1477,7 +1475,7 @@ body {
     .logo {
         gap: 0.5rem;
         /* Reduced gap between icon and text */
-        margin-left: 0;
-        /* Reset margin to match container padding */
+        margin-left: -1rem;
+        /* Aggressive negative margin to pull to edge covering padding */
     }
 }
