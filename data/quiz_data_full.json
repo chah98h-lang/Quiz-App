@@ -34,7 +34,7 @@
           "text": "Locally redundant storage"
         }
       ],
-      "answer": "B",
+      "answer": "B\nRA",
       "explanation": "https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy https://docs.microsoft.com/en-\nus/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage",
       "questionType": "MULTIPLE_CHOICE"
     },
@@ -618,63 +618,29 @@
     {
       "id": 34,
       "original_number": "34",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes",
-        "Yes"
-      ],
-      "explanation": "Box 1: No -\nA PaaS solution does not provide access to the operating system. The Azure Web Apps service provides an environment for you to host your\n\nweb applications.\nBehind the scenes, the web apps are hosted on virtual machines running IIS. However, you have no direct access to the virtual machine, the\noperating system or\nIIS.\nBox 2: Yes -\nA PaaS solution that hosts web apps in Azure does provide the ability to scale the platform automatically. This is known as autoscaling. Behind\nthe scenes, the web apps are hosted on virtual machines running IIS. Autoscaling means adding more load balanced virtual machines to host\nthe web apps.\nBox 3: Yes -\nPaaS provides a framework that developers can build upon to develop or customize cloud-based applications. PaaS development tools can cut\nthe time it takes to code new apps with pre-coded application components built into the platform, such as workjow, directory services, security\nfeatures, search and so on.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "A PaaS solution does not provide access to the operating system",
-        "A PaaS solution that hosts web apps in Azure does provide the ability to scale the platform automatically",
-        "PaaS provides a framework that developers can build upon to develop or customize cloud-based applications"
-      ]
+      "answer": "B",
+      "explanation": "https://azure.microsoft.com/en-gb/overview/what-is-paas/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 35,
       "original_number": "35",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Traditionally, IT expenses have been considered a Capital Expenditure (CapEx)",
-        "Two virtual machines using the same size could have different disk con+gurations",
-        "When an Azure virtual machine is stopped, you don't pay for the virtual machine"
-      ],
-      "answer": [
-        "Yes",
-        "No",
-        "Yes"
-      ],
-      "explanation": "Box 1: Yes -\nTraditionally, IT expenses have been considered a Capital Expenditure (CapEx). Today, with the move to the cloud and the pay-as-you-go model,\norganizations have the ability to stretch their budgets and are shifting their IT CapEx costs to Operating Expenditures (OpEx) instead. This\njexibility, in accounting terms, is now an option due to the ג€as a Serviceג€ model of purchasing software, cloud storage and other IT related\nresources.\nBox 2: No -\nTwo virtual machines using the same size could have different disk con+gurations. Therefore, the monthly costs could be different.\nBox 3: Yes -\nWhen an Azure virtual machine is stopped, you don't pay for the virtual machine. However, you do still pay for the storage costs associated to\nthe virtual machine.\nThe most common storage costs are for the disks attached to the virtual machines. There are also other storage costs associated with a virtual\nmachine such as storage for diagnostic data and virtual machine backups."
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
+      "options": [],
+      "answer": "B",
+      "explanation": "https://meritsolutions.com/capex-vs-opex-cloud-computing-blog/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 36,
       "original_number": "36",
-      "question": "To complete the sentence, select the appropriate option in the answer area.\n\nWhen you are implementing a _______ solution, you are responsible for configuring the solution. Everything else is managed by the cloud provider.",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Software as a Service (SaaS)"
-        },
-        {
-          "letter": "B",
-          "text": "Platform as a Service (PaaS)"
-        },
-        {
-          "letter": "C",
-          "text": "Infrastructure as a Service (IaaS)"
-        },
-        {
-          "letter": "D",
-          "text": "Serverless computing"
-        }
-      ],
-      "answer": "A",
-      "explanation": "When you are implementing a Software as a Service (SaaS) solution, you are responsible for configuring the SaaS solution. Everything else is managed by the cloud provider. SaaS requires the least amount of management. The cloud provider is responsible for managing everything, and the end user just uses the software.",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "W",
+      "explanation": "https://azure.microsoft.com/en-in/overview/what-is-saas/\nhttps://docs.microsoft.com/en-gb/learn/modules/principles-cloud-computing/5-types-of-cloud-services",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 37,
@@ -705,28 +671,11 @@
     {
       "id": 38,
       "original_number": "38",
-      "question": "To complete the sentence, select the appropriate option in the answer area.\n\nAn organization that hosts its infrastructure _______ no longer requires a data center.",
-      "options": [
-        {
-          "letter": "A",
-          "text": "in a private cloud"
-        },
-        {
-          "letter": "B",
-          "text": "in a hybrid cloud"
-        },
-        {
-          "letter": "C",
-          "text": "in the public cloud"
-        },
-        {
-          "letter": "D",
-          "text": "on a Hyper-V host"
-        }
-      ],
-      "answer": "C",
-      "explanation": "A private cloud is hosted in your datacenter. Therefore, you cannot close your datacenter if you are using a private cloud. A public cloud is hosted externally, for example, in Microsoft Azure. An organization that hosts its infrastructure in a public cloud can close its data center. Public cloud is the most common deployment model. In this case, you have no local hardware to manage or keep up-to-date; everything runs on your cloud provider's hardware. Microsoft Azure is an example of a public cloud provider.",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "A",
+      "explanation": "https://docs.microsoft.com/en-gb/learn/modules/principles-cloud-computing/4-cloud-deployment-models",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 39,
@@ -761,28 +710,11 @@
     {
       "id": 40,
       "original_number": "40",
-      "question": "When planning to migrate a public website to Azure, you must plan to _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "deploy a VPN"
-        },
-        {
-          "letter": "B",
-          "text": "pay monthly usage costs"
-        },
-        {
-          "letter": "C",
-          "text": "pay to transfer all the website data to Azure"
-        },
-        {
-          "letter": "D",
-          "text": "reduce the number of connections to the website"
-        }
-      ],
-      "answer": "B",
-      "explanation": "When planning to migrate a public website to Azure, you must plan to pay monthly usage costs. This is because Azure uses the pay-as-you-go model.",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "W",
+      "explanation": "",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 41,
@@ -893,34 +825,11 @@
     {
       "id": 46,
       "original_number": "46",
-      "question": "Which cloud deployment solution is used for Azure virtual machines and Azure SQL databases?\n\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nWhich cloud deployment solution is used for Azure virtual machines and Azure SQL databases? To answer, select the appropriate options in the\nanswer area.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "Yes",
-        "Yes"
-      ],
-      "explanation": "Azure virtual machines are an example of Infrastructure as a Service (IaaS). Azure SQL databases are an example of Platform as a Service (PaaS).",
-      "questionType": "MATCHING",
-      "matchingItems": [
-        {
-          "item": "Azure virtual machines",
-          "options": [
-            "Infrastructure as a Service (IaaS)",
-            "Platform as a Service (PaaS)",
-            "Software as a Service (SaaS)"
-          ],
-          "answer": "Infrastructure as a Service (IaaS)"
-        },
-        {
-          "item": "Azure SQL databases",
-          "options": [
-            "Infrastructure as a Service (IaaS)",
-            "Platform as a Service (PaaS)",
-            "Software as a Service (SaaS)"
-          ],
-          "answer": "Platform as a Service (PaaS)"
-        }
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-gb/learn/modules/principles-cloud-computing/5-types-of-cloud-services https://docs.microsoft.com/en-\nus/azure/sql-database/sql-database-paas-index",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 47,
@@ -951,20 +860,11 @@
     {
       "id": 48,
       "original_number": "48",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes",
-        "No"
-      ],
-      "explanation": "Box 1: No -\nIt is not true that a company must always migrate from a private cloud model to implement a hybrid cloud. You could start with a public cloud\nand then combine that with an on-premise infrastructure to implement a hybrid cloud.\nBox 2: Yes -\nA company can extend the capacity of its internal network by using the public cloud. This is very common. When you need more capacity, rather\nthan pay out for new on-premises infrastructure, you can con+gure a cloud environment and connect your on-premises network to the cloud\nenvironment by using a VPN.\nBox 3: No -\nIt is not true that only guest users can access cloud resources. You can give anyone with an account in Azure Active Directory access to the\ncloud resources.\nThere are many authentication scenarios but a common one is to replicate your on-premises Active Directory accounts to Azure Active\nDirectory and provide access to the Azure Active Directory accounts. Another commonly used authentication method is 'Federation' where\nauthe",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "It is not true that a company must always migrate from a private cloud model to implement a hybrid cloud",
-        "A company can extend the capacity of its internal network by using the public cloud",
-        "It is not true that only guest users can access cloud resources"
-      ]
+      "answer": "B",
+      "explanation": "",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 49,
@@ -995,28 +895,11 @@
     {
       "id": 50,
       "original_number": "50",
-      "question": "To complete the sentence, select the appropriate option in the answer area.\n\nAzure Site Recovery provides _______ for virtual machines.",
-      "options": [
-        {
-          "letter": "A",
-          "text": "fault tolerance"
-        },
-        {
-          "letter": "B",
-          "text": "disaster recovery"
-        },
-        {
-          "letter": "C",
-          "text": "elasticity"
-        },
-        {
-          "letter": "D",
-          "text": "high availability"
-        }
-      ],
-      "answer": "B",
-      "explanation": "Azure Site Recovery helps ensure business continuity by keeping business apps and workloads running during outages. Site Recovery replicates workloads running on physical and virtual machines (VMs) from a primary site to a secondary location.",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "A",
+      "explanation": "https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-overview",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 51,
@@ -1087,20 +970,11 @@
     {
       "id": 55,
       "original_number": "55",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes",
-        "No"
-      ],
-      "explanation": "Box 1: No -\nIt is not true that a company must always migrate from an internal network to implement a hybrid cloud. You could start with a public cloud and\nthen combine that with an on-premise infrastructure to implement a hybrid cloud.\nBox 2: Yes -\nA company can extend the computing resources of its internal network by using the public cloud. This is very common. When you need more\nresources, rather than pay out for new on-premises infrastructure, you can con+gure a cloud environment and connect your on-premises\nnetwork to the cloud environment by using a VPN.\nBox 3: No -\nIt is not true that only guest users can access cloud resources. You can give anyone with an account in Azure Active Directory access to the\n\ncloud resources.\nThere are many authentication scenarios but a common one is to replicate your on-premises Active Directory accounts to Azure Active\nDirectory and provide access to the Azure Active Directory accounts. Another commonly used authentication method is 'Federation' ",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "It is not true that a company must always migrate from an internal network to implement a hybrid cloud",
-        "A company can extend the computing resources of its internal network by using the public cloud",
-        "It is not true that only guest users can access cloud resources"
-      ]
+      "answer": "B",
+      "explanation": "https://azure.microsoft.com/en-gb/overview/what-is-hybrid-cloud-computing/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 56,
@@ -1144,20 +1018,11 @@
     {
       "id": 58,
       "original_number": "58",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "No",
-        "Yes"
-      ],
-      "explanation": "Box 1: No -\nWith the pay-as-go model, you pay for services as you use them. This is Opex (Operational Expenditure), not CapEx (Captial Expenditure). CapEx\nis where you pay for something upfront. For example, buying a new physical server.\nBox 2: No -\nPaying for electricity for your own datacenter will be classed as CapEx, not OpEx.\nBox 3: Yes -\nDeploying your own datacenter is an example of CapEx. This is because you need to purchase all the infrastructure upfront before you can use\nit.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "With the pay-as-go model, you pay for services as you use them",
-        "Paying for electricity for your own datacenter will be classed as CapEx, not OpEx.",
-        "Deploying your own datacenter is an example of CapEx"
-      ]
+      "answer": "O",
+      "explanation": "https://docs.microsoft.com/en-us/azure/architecture/cloud-adoption/appendix/azure-scaffold",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 59,
@@ -1223,18 +1088,11 @@
     {
       "id": 62,
       "original_number": "62",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes"
-      ],
-      "explanation": "Box 1: No -\nYou cannot add physical servers to the public cloud. You can only deploy virtual servers in the public cloud. You can extend a private cloud by\ndeploying virtual servers in a public cloud. This would create a hybrid cloud.\nBox 2: Yes -\nA hybrid cloud is a combination of a private cloud and public cloud. Therefore, to create a hybrid cloud, you must deploy resources to a public\ncloud.\nBox 3: No.\nIt is not true that a private cloud must be disconnected from the Internet. Private clouds can be and most commonly are connected to the\nInternet. ג€Private cloudג€ means that the physical servers are managed by you. It does not mean that it is disconnected from the Internet.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "You cannot add physical servers to the public cloud",
-        "A hybrid cloud is a combination of a private cloud and public cloud"
-      ]
+      "answer": "B",
+      "explanation": "https://azure.microsoft.com/en-gb/overview/what-are-private-public-hybrid-clouds/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 63,
@@ -1261,18 +1119,11 @@
     {
       "id": 64,
       "original_number": "64",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes"
-      ],
-      "explanation": "Box 1: No -\nA PaaS solution does not provide access to the operating system. The Azure Web Apps service provides an environment for you to host your\nweb applications.\nBehind the scenes, the web apps are hosted on virtual machines running IIS. However, you have no direct access to the virtual machine, the\noperating system or\nIIS.\nBox 2: Yes -\nBox 3: Yes -\nA PaaS solution that hosts web apps in Azure does provide the ability to scale the platform automatically. This is known as autoscaling. Behind\nthe scenes, the web apps are hosted on virtual machines running IIS. Autoscaling means adding more load balanced virtual machines to host\nthe web apps.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "A PaaS solution does not provide access to the operating system",
-        "Box 3: Yes -\nA PaaS solution that hosts web apps in Azure does provide the ability to scale the platform automatically"
-      ]
+      "answer": "B",
+      "explanation": "https://azure.microsoft.com/en-gb/overview/what-is-paas/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 65,
@@ -1317,38 +1168,20 @@
     {
       "id": 67,
       "original_number": "67",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes",
-        "Yes"
-      ],
-      "explanation": "Box 1: No -\nBuilding a data center infrastructure is capital expenditure, not operation expenditure.\nBox 2: Yes -\nOpEx is ongoing costs (costs of operations) such as staff salaries.\nBox 2: Yes -\nOpEx is ongoing costs (costs of operations) such as leasing software. If you purchased software as a one-off purchase, that would be CapEx,\nbut leasing software is ongoing so it's OpEx.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Building a data center infrastructure is capital expenditure, not operation expenditure.",
-        "OpEx is ongoing costs (costs of operations) such as staff salaries.",
-        "OpEx is ongoing costs (costs of operations) such as leasing software"
-      ]
+      "answer": "B",
+      "explanation": "",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 68,
       "original_number": "68",
-      "question": "Azure Cosmos DB is an example of a platform as a service (PaaS) cloud database provider.",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Azure Cosmos DB is an example of"
-        },
-        {
-          "letter": "B",
-          "text": "platform as a service (PaaS)"
-        }
-      ],
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
       "answer": "A",
-      "explanation": "Azure Cosmos DB is an example of a platform as a service (PaaS) cloud database provider.",
-      "questionType": "MULTIPLE_CHOICE"
+      "explanation": "https://docs.microsoft.com/en-us/azure/cosmos-db/database-security",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 69,
@@ -1362,18 +1195,11 @@
     {
       "id": 70,
       "original_number": "70",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes"
-      ],
-      "explanation": "Box 1: No -\nBox 2: No -\nEach resource can exist in only one resource group.\nBox 3: Yes -\nResources from multiple different regions can be placed in a resource group. The resource group only contains metadata about the resources it\ncontains.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Box 2: No -\nEach resource can exist in only one resource group.",
-        "Resources from multiple different regions can be placed in a resource group"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview https://www.codeisahighway.com/effective-ways-\nto-delete-resources-in-a-resource-group-on-azure/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 71,
@@ -1492,36 +1318,20 @@
     {
       "id": 78,
       "original_number": "78",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n\n:",
       "options": [],
-      "answer": [
-        "No",
-        "No"
-      ],
-      "explanation": "Box 1: No -\nYou cannot add physical servers to the public cloud. You can only deploy virtual servers in the public cloud. You can extend a private cloud by\ndeploying virtual servers in a public cloud. This would create a hybrid cloud.\nBox 2: No -\nA private cloud exists in cyberspace and is accessed via the internet.\nBox 3: Yes.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "You cannot add physical servers to the public cloud",
-        "A private cloud exists in cyberspace and is accessed via the internet."
-      ]
+      "answer": "B",
+      "explanation": "https://azure.microsoft.com/en-gb/overview/what-are-private-public-hybrid-clouds/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 79,
       "original_number": "79",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes",
-        "Yes"
-      ],
-      "explanation": "Box 1: No -\nVirtual Machines works.\nBox 2: Yes -\nSimply put, cloud computing is the delivery of computing servicesג€\"including servers, storage, databases, networking, software, analytics, and\nintelligenceג€\"over the Internet (ג€the cloudג€) to offer faster innovation, jexible resources, and economies of scale.\nBox 3: Yes -",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Virtual Machines works.",
-        "Simply put, cloud computing is the delivery of computing servicesג€\"including servers, storage, databases, networking, software, analytics, and\nintelligenceג€\"over the Internet (ג€the cloudג€) to offe",
-        "Reference:\nhttps://azure.microsoft.com/en-us/overview/what-is-cloud-computing/"
-      ]
+      "answer": "B",
+      "explanation": "https://azure.microsoft.com/en-us/overview/what-is-cloud-computing/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 80,
@@ -1544,31 +1354,11 @@
     {
       "id": 82,
       "original_number": "82",
-      "question": "You plan to use Azure to host two apps named App1 and App2. The apps must meet the following requirements:\n\n→ You must be able to modify the code of App1.\n→ Administrative effort to manage the operating system of App1 must be minimized.\n→ App2 must run interactively with the operating system of the server.\n\nWhich type of cloud service should you use for each app? To answer, select the appropriate options in the answer area.\n\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nYou plan to use Azure to host two apps named App1 and App2. The apps must meet the following requirements:\n✑ You must be able to modify the code of App1.\n✑ Administrative effort to manage the operating system of App1 must be minimized.\n✑ App2 must run interactively with the operating system of the server.\nWhich type of cloud service should you use for each app? To answer, select the appropriate options in the answer area.\n\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
       "answer": "B",
-      "explanation": "Box 1: Azure Platform as a service (PaaS)\nOrganizations typically use PaaS for these scenarios:\nDevelopment framework. PaaS provides a framework that developers can build upon to develop or customize cloud-based applications. Similar\nto the way you create an Excel macro, PaaS lets developers create applications using built-in software components. Cloud features such as\nscalability, high-availability, and multi-tenant capability are included, reducing the amount of coding that developers must do.\nBox 2:\nSoftware as a service (SaaS) allows users to connect to and use cloud-based apps over the Internet. Common examples are email, calendaring,\nand ohce tools\n\n(such as Microsoft Ohce 365).\nSaaS provides a complete software solution that you purchase on a pay-as-you-go basis from a cloud service provider. You rent the use of an\napp for your organization, and your users connect to it over the Internet, usually with a web browser. All of the underlying infrastructure,\nmiddleware, app software,",
-      "questionType": "MATCHING",
-      "matchingItems": [
-        {
-          "item": "App1",
-          "options": [
-            "Infrastructure as a Service (IaaS)",
-            "Platform as a Service (PaaS)",
-            "Software as a Service (SaaS)"
-          ],
-          "answer": "Platform as a Service (PaaS)"
-        },
-        {
-          "item": "App2",
-          "options": [
-            "Infrastructure as a Service (IaaS)",
-            "Platform as a Service (PaaS)",
-            "Software as a Service (SaaS)"
-          ],
-          "answer": "Infrastructure as a Service (IaaS)"
-        }
-      ]
+      "explanation": "https://azure.microsoft.com/en-us/overview/what-is-paas/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 83,
@@ -1855,18 +1645,11 @@
     {
       "id": 100,
       "original_number": "100",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes"
-      ],
-      "explanation": "Box 1: No -\nAn Azure AD tenant can have multiple subscriptions but an Azure subscription can only be associated with one Azure AD tenant.\nBox 2: Yes -\nBox 3: No -\nIf your subscription expires, you lose access to all the other resources associated with the subscription. However, the Azure AD directory\nremains in Azure. You can associate and manage the directory using a different Azure subscription.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "An Azure AD tenant can have multiple subscriptions but an Azure subscription can only be associated with one Azure AD tenant.",
-        "Box 3: No -\nIf your subscription expires, you lose access to all the other resources associated with the subscription"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 101,
@@ -1923,46 +1706,20 @@
     {
       "id": 103,
       "original_number": "103",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n\n:",
       "options": [],
-      "answer": [
-        "Yes",
-        "No",
-        "Yes"
-      ],
-      "explanation": "Box 1: Yes -\nYou can use the same account to manage multiple subscriptions. You can create an additional subscription for your account in the Azure\nportal. You may want an additional subscription to avoid hitting subscription limits, to create separate environments for security, or to isolate\ndata for compliance reasons.\nBox 2: No -\nYou cannot merge two subscriptions into a single subscription. However, you can move some Azure resources from one subscription to\nanother. You can also transfer ownership of a subscription and change the billing type for a subscription.\nBox 3: Yes -\nA company can have multiple subscriptions and store resources in the different subscriptions. However, a resource instance can exist in only\n\none subscription.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "You can use the same account to manage multiple subscriptions",
-        "You cannot merge two subscriptions into a single subscription",
-        "A company can have multiple subscriptions and store resources in the different subscriptions"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/create-subscription",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 104,
       "original_number": "104",
-      "question": "You have several virtual machines in an Azure subscription. You create a new subscription.",
-      "options": [
-        {
-          "letter": "A",
-          "text": "The virtual machines cannot be moved to the new subscription"
-        },
-        {
-          "letter": "B",
-          "text": "The virtual machines can be moved to the new subscription"
-        },
-        {
-          "letter": "C",
-          "text": "The virtual machines can be moved to the new subscription only if they are all in the same resource group"
-        },
-        {
-          "letter": "D",
-          "text": "The virtual machines can be moved to the new subscription only if they run Windows Server 2016"
-        }
-      ],
-      "answer": "B",
-      "explanation": "You can move a VM and its associated resources to a different subscription by using the Azure portal.\nMoving between subscriptions can be handy if you originally created a VM in a personal subscription and now want to move it to your\ncompany's subscription to continue your work. You do not need to start the VM in order to move it and it should continue to run during the\nmove.",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "Y",
+      "explanation": "https://docs.microsoft.com/en-us/azure/virtual-machines/windows/move-vm",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 105,
@@ -2023,38 +1780,20 @@
     {
       "id": 107,
       "original_number": "107",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "No",
-        "No"
-      ],
-      "explanation": "Box 1: No -\nYou can assign service administrators and co-administrators in the Azure Portal but there can only be one account administrator.\nBox 2: No -\nYou need an Azure Active Directory account to manage a subscription, not a Microsoft account.\nAn account is created in the Azure Active Directory when you create the subscription. Further accounts can be created in the Azure Active\nDirectory to manage the subscription.\nBox 3: No -\nResource groups are logical containers for Azure resources. However, resource groups do not contain subscriptions. Subscriptions contain\nresource groups.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "You can assign service administrators and co-administrators in the Azure Portal but there can only be one account administrator.",
-        "You need an Azure Active Directory account to manage a subscription, not a Microsoft account",
-        "Resource groups are logical containers for Azure resources"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/ohce365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 108,
       "original_number": "108",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "No",
-        "No"
-      ],
-      "explanation": "Box 1: No -\nNot all Azure regions support availability zones.\nBox 2: No -\nAvailability zones can be used with many Azure services, not just VMs.\nBox 3: No -\nAvailability Zones are unique physical locations within a single Azure region.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Not all Azure regions support availability zones.",
-        "Availability zones can be used with many Azure services, not just VMs.",
-        "Availability Zones are unique physical locations within a single Azure region."
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/availability-zones/az-region#azure-regions-with-availability-zones",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 109,
@@ -2155,68 +1894,29 @@
     {
       "id": 114,
       "original_number": "114",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n\n:",
       "options": [],
-      "answer": [
-        "No",
-        "No",
-        "Yes"
-      ],
-      "explanation": "Box 1: No -\nAzure resources deployed to a single resource group can be located in different regions. The resource group only contains metadata about the\nresources it contains.\nWhen creating a resource group, you need to provide a location for that resource group. You may be wondering, \"Why does a resource group\nneed a location?\nAnd, if the resources can have different locations than the resource group, why does the resource group location matter at all?\" The resource\ngroup stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is\nstored. For compliance reasons, you may need to ensure that your data is stored in a particular region.\nBox 2: No -\nTags for Resources are not inherited by default from their Resource Group\n\nBox 3: Yes -\nA resource group can be used to scope access control for administrative actions. By default, permissions set at the resource level are inherited\nby the resources in the resource group.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Azure resources deployed to a single resource group can be located in different regions",
-        "Tags for Resources are not inherited by default from their Resource Group",
-        "A resource group can be used to scope access control for administrative actions"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 115,
       "original_number": "115",
-      "question": "Data that is stored in the Archive access tier of an Azure Storage account _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "can be accessed at any time by using azcopy.exe"
-        },
-        {
-          "letter": "B",
-          "text": "can only be read by using Azure Backup"
-        },
-        {
-          "letter": "C",
-          "text": "must be restored before the data can be accessed"
-        },
-        {
-          "letter": "D",
-          "text": "must be rehydrated before the data can be accessed"
-        }
-      ],
-      "answer": "D",
-      "explanation": "Azure storage offers different access tiers: hot, cool and archive.\nThe archive access tier has the lowest storage cost. But it has higher data retrieval costs compared to the hot and cool tiers. Data in the archive\ntier can take several hours to retrieve.\nWhile a blob is in archive storage, the blob data is oline and can't be read, overwritten, or modi+ed. To read or download a blob in archive, you\nmust +rst rehydrate it to an online tier.\nExample usage scenarios for the archive access tier include:\n✑ Long-term backup, secondary backup, and archival datasets\n✑ Original (raw) data that must be preserved, even after it has been processed into +nal usable form.\n✑ Compliance and archival data that needs to be stored for a long time and is hardly ever accessed.",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "A",
+      "explanation": "https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal#archive-access-tier",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 116,
       "original_number": "116",
-      "question": "You plan to deploy a critical line-of-business application to Azure.",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Azure offers industry best"
-        },
-        {
-          "letter": "B",
-          "text": "Azure region"
-        },
-        {
-          "letter": "C",
-          "text": "Azure virtual machine"
-        }
-      ],
-      "answer": "A",
-      "explanation": "You need a minimum of two virtual machines with each one located in a different availability zone.\nAvailability Zones is a high-availability offering that protects your applications and data from datacenter failures. Availability Zones are unique\nphysical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and\nnetworking. To ensure resiliency, there's a minimum of three separate zones in all enabled regions. The physical sep",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nYou plan to deploy a critical line-of-business application to Azure.\nThe application will run on an Azure virtual machine.\nYou need to recommend a deployment solution for the application. The solution must provide a guaranteed availability of 99.99 percent.\nWhat is the minimum number of virtual machines and the minimum number of availability zones you should recommend for the deployment? To\nanswer, select the appropriate options in the answer area.\nNOTE: Each correct selection is worth one point.\n:",
+      "options": [],
+      "answer": "Y",
+      "explanation": "https://docs.microsoft.com/en-us/azure/availability-zones/az-overview",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 117,
@@ -2247,82 +1947,38 @@
     {
       "id": 118,
       "original_number": "118",
-      "question": "An Availability Zone in Azure has physically separate locations _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "across two continents"
-        },
-        {
-          "letter": "B",
-          "text": "within a single Azure region"
-        },
-        {
-          "letter": "C",
-          "text": "within multiple Azure regions"
-        },
-        {
-          "letter": "D",
-          "text": "within a single Azure datacenter"
-        }
-      ],
-      "answer": "B",
-      "explanation": "Availability Zones is a high-availability offering that protects your applications and data from datacenter failures. Availability Zones are unique\nphysical locations within an Azure region.",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "A",
+      "explanation": "https://docs.microsoft.com/en-us/azure/availability-zones/az-overview",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 119,
       "original_number": "119",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "Yes",
-        "No",
-        "No"
-      ],
-      "explanation": "Box 1: Yes -\nThere are different replication options available with a storage account. The 'minimum' replication option is Locally Redundant Storage (LRS).\nWith LRS, data is replicated synchronously three times within the primary region.\nBox 2: No -\nData is not backed up automatically to another Azure Data Center although it can be depending on the replication option con+gured for the\naccount. Locally\nRedundant Storage (LRS) is the default which maintains three copies of the data in the data center.\nGeo-redundant storage (GRS) has cross-regional replication to protect against regional outages. Data is replicated synchronously three times in\nthe primary region, then replicated asynchronously to the secondary region.\nBox 3: No -\nThe limits are much higher than that. The current storage limit is 2 PB for US and Europe, and 500 TB for all other regions (including the UK)\nwith no limit on the number of +les.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "There are different replication options available with a storage account",
-        "Data is not backed up automatically to another Azure Data Center although it can be depending on the replication option con+gured for the\naccount",
-        "The limits are much higher than that"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 120,
       "original_number": "120",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "No",
-        "Yes"
-      ],
-      "explanation": "Box 1: No -\nNot all Azure regions support availability zones.\nBox 2: No -\nRegions that support availability zones support Linux virtual machines.\nBox 3: Yes -\nAvailability Zones is a high-availability offering that protects your applications and data from datacenter failures. Availability Zones are unique\nphysical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and\nnetworking. To ensure resiliency, there's a minimum of three separate zones in all enabled regions. The physical separation of Availability Zones\nwithin a region protects applications and data from datacenter failures. Zone-redundant services replicate your applications and data across\nAvailability Zones to protect from single-points-of-failure. With Availability\nZones, Azure offers industry best 99.99% VM uptime SLA.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Not all Azure regions support availability zones.",
-        "Regions that support availability zones support Linux virtual machines.",
-        "Availability Zones is a high-availability offering that protects your applications and data from datacenter failures"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-gb/azure/availability-zones/az-overview",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 121,
       "original_number": "121",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes",
-        "No"
-      ],
-      "explanation": "Box 1: No -\nNorth America has several Azure regions, including West US, Central US, South Central US, East Us, and Canada East.\nBox 2: Yes -\nA region is a set of datacenters deployed within a latency-de+ned perimeter and connected through a dedicated regional low-latency network.\nBox 3: No -\nOutbound data transfer is charged at the normal rate and inbound data transfer is free.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "North America has several Azure regions, including West US, Central US, South Central US, East Us, and Canada East.",
-        "A region is a set of datacenters deployed within a latency-de+ned perimeter and connected through a dedicated regional low-latency network.",
-        "Outbound data transfer is charged at the normal rate and inbound data transfer is free."
-      ]
+      "answer": "B",
+      "explanation": "https://azure.microsoft.com/en-us/global-infrastructure/regions/ https://azure.microsoft.com/en-us/pricing/details/bandwidth/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 122,
@@ -2389,28 +2045,11 @@
     {
       "id": 126,
       "original_number": "126",
-      "question": "https://blog.abouttmc.com/azure-cloud-total-cost-of-ownership _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Option A (확인 필요)"
-        },
-        {
-          "letter": "B",
-          "text": "Option B (확인 필요)"
-        },
-        {
-          "letter": "C",
-          "text": "Option C (확인 필요)"
-        },
-        {
-          "letter": "D",
-          "text": "Option D (확인 필요)"
-        }
-      ],
-      "answer": "A",
-      "explanation": "Reference:\nhttps://blog.abouttmc.com/azure-cloud-total-cost-of-ownership",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "R",
+      "explanation": "https://blog.abouttmc.com/azure-cloud-total-cost-of-ownership",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 127,
@@ -2424,18 +2063,11 @@
     {
       "id": 128,
       "original_number": "128",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "No"
-      ],
-      "explanation": "Box 1: No -\nA subscription can have multiple administrators, but there can only be one account administrator.\nBox 3: No -\nA subscription can contain multiple resource groups but a resource group can only belong to one subscription. Resource groups can contain\nmultiple resources.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "A subscription can have multiple administrators, but there can only be one account administrator.",
-        "A subscription can contain multiple resource groups but a resource group can only belong to one subscription"
-      ]
+      "answer": "B",
+      "explanation": "https://k21academy.com/microsoft-azure/az-900/az-900-azure-subscriptions/ https://azure.microsoft.com/en-us/blog/organizing-\nsubscriptions-and-resource-groups-within-the-enterprise/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 129,
@@ -2484,28 +2116,11 @@
     {
       "id": 132,
       "original_number": "132",
-      "question": "You plan to deploy 20 virtual machines to an Azure environment. To ensure that a virtual machine named VM1 cannot connect to the other virtual machines, VM1 must _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "be deployed to a separate virtual network"
-        },
-        {
-          "letter": "B",
-          "text": "run a different operating system than the other virtual machines"
-        },
-        {
-          "letter": "C",
-          "text": "be deployed to a separate resource group"
-        },
-        {
-          "letter": "D",
-          "text": "have two network interfaces"
-        }
-      ],
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
       "answer": "A",
-      "explanation": "Azure automatically routes trahc between subnets in a virtual network. Therefore, all virtual machines in a virtual network can connect to the\nother virtual machines in the same virtual network. Even if the virtual machines are on separate subnets within the virtual network, they can still\ncommunicate with each other.\nTo ensure that a virtual machine cannot connect to the other virtual machines, the virtual machine must be deployed to a separate virtual\nnetwork.",
-      "questionType": "MULTIPLE_CHOICE"
+      "explanation": "https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 133,
@@ -2616,20 +2231,11 @@
     {
       "id": 141,
       "original_number": "141",
-      "question": "To answer, select the appropriate option in the answer area.",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Azure portal"
-        },
-        {
-          "letter": "B",
-          "text": "Azure portal to manage the resource group containing the VM to move"
-        }
-      ],
+      "question": "HOTSPOT -\nTo answer, select the appropriate option in the answer area.\n:",
+      "options": [],
       "answer": "B",
-      "explanation": "Box: The virtual machines can be moved to the new subscription.\nYou can move a VM and its associated resources to a different subscription by using the Azure portal.\nNote: Repeat the process below for each Resource Group containing the VMs.\n1. Go to the Azure portal to manage the resource group containing the VM to move. Search for and select Resource groups.\n2. Choose the resource group containing the VM that you would like to move.\n3. At the top of the page for the resource group, select Move ",
-      "questionType": "MULTIPLE_CHOICE"
+      "explanation": "https://docs.microsoft.com/en-us/azure/virtual-machines/windows/move-vm",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 142,
@@ -2809,20 +2415,11 @@
     {
       "id": 152,
       "original_number": "152",
-      "question": "A resource group is a logical container for Azure resources. Resource groups make the management of Azure resources easier.",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Azure resources"
-        },
-        {
-          "letter": "B",
-          "text": "Azure resources easier"
-        }
-      ],
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
       "answer": "A",
-      "explanation": "A resource group is a logical container for Azure resources. Resource groups make the management of Azure resources easier.\nWith a resource group, you can allow a user to manage all resources in the resource group, such as virtual machines, websites, and subnets.\nThe permissions you apply to the resource group apply to all resources contained in the resource group.",
-      "questionType": "MULTIPLE_CHOICE"
+      "explanation": "https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview#resource-groups https://docs.microsoft.com/en-\nus/azure/role-based-access-control/overview",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 153,
@@ -2933,20 +2530,11 @@
     {
       "id": 159,
       "original_number": "159",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes",
-        "Yes"
-      ],
-      "explanation": "Box 1: No -\nA resource can interact with resources in other resource groups.\nBox 2: Yes -\nDeleting the resource group will remove the resource group as well as all the resources in that resource group. This can be useful for the\nmanagement of resources. For example, a virtual machine has several components (the VM itself, virtual disks, network adapter etc.). By\nplacing the VM in its own resource group, you can delete the VM along with all its associated components by deleting the resource group.\nAnother example is when creating a test environment. You could place the entire test environment (Network components, virtual machines etc.)\nin one resource group. You can then delete the entire test environment by deleting the resource group.\nBox 3: Yes -\nResources from multiple different regions can be placed in a resource group. The resource group only contains metadata about the resources it\ncontains.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "A resource can interact with resources in other resource groups.",
-        "Deleting the resource group will remove the resource group as well as all the resources in that resource group",
-        "Resources from multiple different regions can be placed in a resource group"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview https://www.codeisahighway.com/effective-ways-\nto-delete-resources-in-a-resource-group-on-azure/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 160,
@@ -2981,28 +2569,11 @@
     {
       "id": 161,
       "original_number": "161",
-      "question": "You have an Azure environment that contains 10 web apps. To which URL should you connect to manage all the Azure resources? To answer,",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Azure environment that contains"
-        },
-        {
-          "letter": "B",
-          "text": "Azure portal is"
-        },
-        {
-          "letter": "C",
-          "text": "Azure portal is https"
-        },
-        {
-          "letter": "D",
-          "text": "Azure resources"
-        }
-      ],
-      "answer": "A",
-      "explanation": "The Azure portal is a web-based management interface where you can view and manage all your Azure resources in one uni+ed hub, including\nweb apps, databases, virtual machines, virtual networks, storage and Visual Studio team projects.\nThe URL of the Azure portal is https://portal.azure.com.",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nYou have an Azure environment that contains 10 web apps. To which URL should you connect to manage all the Azure resources? To answer,\nselect the appropriate options in the answer area.\nNOTE: Each correct selection is worth one point.\n:",
+      "options": [],
+      "answer": "T",
+      "explanation": "https://azure.microsoft.com/en-gb/features/azure-portal/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 162,
@@ -3061,20 +2632,11 @@
     {
       "id": 166,
       "original_number": "166",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "Yes",
-        "Yes",
-        "No"
-      ],
-      "explanation": "Box 1: Yes -\nAzure Service Health consists of three components: Azure Status, Azure Service Heath and Azure Resource Health.\nAzure service health provides a personalized view of the health of the Azure services and regions you're using. This is the best place to look for\nservice impacting communications about outages, planned maintenance activities, and other health advisories because the authenticated\nAzure Service Health experience knows which services and resources you currently use.\nTo view the health of all other services available in Azure, you would use the Azure Status component of Azure Service Health. Azure status\ninforms you of service outages in Azure on the Azure Status page. The page is a global view of the health of all Azure services across all Azure\nregions.\nBox 2: Yes -\nThe best way to use Service Health is to set up Service Health alerts to notify you via your preferred communication channels when service\nissues, planned maintenance, or other changes may affect the A",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Azure Service Health consists of three components: Azure Status, Azure Service Heath and Azure Resource Health",
-        "The best way to use Service Health is to set up Service Health alerts to notify you via your preferred communication channels when service\nissues, planned maintenance, or other changes may affect the ",
-        "You can use Resource Health to view the health of a virtual machine"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/service-health/overview",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 167,
@@ -3124,28 +2686,11 @@
     {
       "id": 171,
       "original_number": "171",
-      "question": "✑ View security recommendations.",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Azure Advisor displays security recommendations"
-        },
-        {
-          "letter": "B",
-          "text": "Azure Advisor provides you with"
-        },
-        {
-          "letter": "C",
-          "text": "Azure Marketplace"
-        },
-        {
-          "letter": "D",
-          "text": "Azure Monitor is used to monitor the health of Azure services"
-        }
-      ],
+      "question": "HOTSPOT -\nYou need to identify which blades in the Azure portal must be used to perform the following tasks:\n✑ View security recommendations.\n✑ Monitor the health of Azure services.\n✑ Browse available virtual machine images.\nWhich blade should you identify for each task? To answer, select the appropriate options in the answer area.\n\nNOTE: Each correct selection is worth one point.\n:",
+      "options": [],
       "answer": "B",
-      "explanation": "Box 1:\nAzure Monitor is used to monitor the health of Azure services.",
-      "questionType": "MULTIPLE_CHOICE"
+      "explanation": "https://docs.microsoft.com/en-us/azure/azure-monitor/overview https://docs.microsoft.com/en-us/azure/marketplace/marketplace-faq-\npublisher-guide https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 172,
@@ -3306,20 +2851,11 @@
     {
       "id": 178,
       "original_number": "178",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "No",
-        "No"
-      ],
-      "explanation": "Box 1: No -\nAzure Advisor does not generate a list of virtual machines that ARE protected by Azure Backup. Azure Advisor does however, generate a list of\nvirtual that ARE\nNOT protected by Azure Backup. You can view a list of virtual machines that are protected by Azure Backup by viewing the Protected Items in\nthe Azure Recovery\nServices Vault.\nBox 2: No -\nIf you implement the security recommendations, you company's score will increase, not decrease.\nBox 3: No -\nThere is no requirement to implement the security recommendations provided by Azure Advisor. The recommendations are just that,\n'recommendations'. They are not 'requirements'.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Azure Advisor does not generate a list of virtual machines that ARE protected by Azure Backup",
-        "If you implement the security recommendations, you company's score will increase, not decrease.",
-        "There is no requirement to implement the security recommendations provided by Azure Advisor"
-      ]
+      "answer": "B",
+      "explanation": "https://azure.microsoft.com/en-gb/blog/advisor-backup-recommendations/ https://docs.microsoft.com/en-us/azure/advisor/advisor-overview\nhttps://microsoft.github.io/AzureTipsAndTricks/blog/tip173.html",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 179,
@@ -3415,18 +2951,11 @@
     {
       "id": 183,
       "original_number": "183",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes"
-      ],
-      "explanation": "Box 1: No -\nAzure Advisor provides you with a consistent, consolidated view of recommendations for all your Azure resources. It integrates with Azure\nSecurity Center to bring you security recommendations. You can get security recommendations from the Security tab on the Advisor dashboard.\nExamples of recommendations include restricting access to virtual machines by con+guring Network Security Groups, enabling storage\nencryption, installing vulnerability assessment solutions.\nHowever, Azure Advisor does not provide recommendations on how to improve the security of an Azure AD environment.\nBox 2: Yes -\n\nAdvisor helps you optimize and reduce your overall Azure spend by identifying idle and underutilized resources. You can get cost\nrecommendations from the Cost tab on the Advisor dashboard.\nBox 3: No.\nAzure Advisor does not provide recommendations on how to con+gure network settings on Azure virtual machines.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Azure Advisor provides you with a consistent, consolidated view of recommendations for all your Azure resources",
-        "Advisor helps you optimize and reduce your overall Azure spend by identifying idle and underutilized resources"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations https://docs.microsoft.com/en-us/azure/advisor/advisor-\ncost-recommendations",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 184,
@@ -3485,95 +3014,29 @@
     {
       "id": 187,
       "original_number": "187",
-      "question": "You have three virtual machines (VMs) that are included in an availability set.\n\nYou try to resize one of the VMs, but you get an error message saying the desired size is not available in the availability set.\n\nYou need to ensure that you can resize the VM.\n\nWhich tool or tools should you use on each computer? To answer, select the appropriate options.\n\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nSeveral support engineers plan to manage Azure by using the computers shown in the following table:\nYou need to identify which Azure management tools can be used from each computer.\nWhat should you identify for each computer? To answer, select the appropriate options in the answer area.\n\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": "A",
-      "explanation": "Previously, the Azure CLI (or x-plat CLI) was the only option for managing Azure subscriptions and resources from the command-line on Linux\nand macOS. Now with the open source and cross-platform release of PowerShell, you'll be able to manage all your Azure resources from\nWindows, Linux and macOS using your tool of choice, either the Azure CLI or Azure PowerShell cmdlets.\n\nThe Azure portal runs in a web browser so can be used in either operating system.",
-      "questionType": "MATCHING",
-      "matchingItems": [
-        {
-          "item": "Computer1",
-          "options": [
-            "The Azure CLI and the Azure portal",
-            "The Azure portal and Azure PowerShell",
-            "The Azure CLI and Azure PowerShell",
-            "The Azure CLI, the Azure portal, and Azure PowerShell"
-          ],
-          "answer": "The Azure CLI and Azure PowerShell"
-        },
-        {
-          "item": "Computer2",
-          "options": [
-            "The Azure CLI and the Azure portal",
-            "The Azure portal and Azure PowerShell",
-            "The Azure CLI and Azure PowerShell",
-            "The Azure CLI, the Azure portal, and Azure PowerShell"
-          ],
-          "answer": "The Azure CLI and Azure PowerShell"
-        },
-        {
-          "item": "Computer3",
-          "options": [
-            "The Azure CLI and the Azure portal",
-            "The Azure portal and Azure PowerShell",
-            "The Azure CLI and Azure PowerShell",
-            "The Azure CLI, the Azure portal, and Azure PowerShell"
-          ],
-          "answer": "The Azure CLI, the Azure portal, and Azure PowerShell"
-        }
-      ]
+      "answer": "P",
+      "explanation": "https://buildazure.com/2016/08/18/powershell-now-open-source-and-cross-platform-linux-macos-windows/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 188,
       "original_number": "188",
-      "question": "You can access Compliance Manager from the _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Azure Active Directory admin center"
-        },
-        {
-          "letter": "B",
-          "text": "Azure portal"
-        },
-        {
-          "letter": "C",
-          "text": "Microsoft 365 admin center"
-        },
-        {
-          "letter": "D",
-          "text": "Microsoft Service Trust Portal"
-        }
-      ],
-      "answer": "D",
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "T",
       "explanation": "",
-      "questionType": "MULTIPLE_CHOICE"
+      "questionType": "HOT_AREA"
     },
     {
       "id": 189,
       "original_number": "189",
-      "question": "Azure policies are used to de+ne rules for what can be deployed and how it should be deployed. Whilst this can help in ensuring consistency,",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Azure Resource Manager templates provides"
-        },
-        {
-          "letter": "B",
-          "text": "Azure environment"
-        },
-        {
-          "letter": "C",
-          "text": "Azure policies are used to de"
-        },
-        {
-          "letter": "D",
-          "text": "Azure policies do not provide the common platform for deploying objects to"
-        }
-      ],
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
       "answer": "A",
-      "explanation": "Azure Resource Manager templates provides a common platform for deploying objects to a cloud infrastructure and for implementing\nconsistency across the\nAzure environment.\nAzure policies are used to de+ne rules for what can be deployed and how it should be deployed. Whilst this can help in ensuring consistency,\nAzure policies do not provide the common platform for deploying objects to a cloud infrastructure.",
-      "questionType": "MULTIPLE_CHOICE"
+      "explanation": "https://docs.microsoft.com/en-us/azure/governance/policy/overview",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 190,
@@ -3767,18 +3230,11 @@
     {
       "id": 201,
       "original_number": "201",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "Yes",
-        "Yes"
-      ],
-      "explanation": "Box 1: Yes -\nBox 2: No -\nCloud services can be managed through https://portal.azure.com/\nIn the Cloud Services area of the Azure portal, you can:\nUpdate a service role or a deployment.\nPromote a staged deployment to production.\nLink resources to your cloud service so that you can see the resource dependencies and scale the resources together.\nDelete a cloud service or a deployment.\nBox 3: Yes -",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Box 2: No -\nCloud services can be managed through https://portal.azure.com/\nIn the Cloud Services area of the Azure portal, you can:\nUpdate a service role or a deployment",
-        "Reference:\nhttps://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-how-to-manage-portal"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-how-to-manage-portal",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 202,
@@ -3929,64 +3385,29 @@
     {
       "id": 211,
       "original_number": "211",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes",
-        "Yes"
-      ],
-      "explanation": "Box 1: No -\nEasily manage your Azure storage accounts in the cloud, from Windows, macOS, or Linux, using Azure Storage Explorer.\nBox 2: Yes -\nAzure cloud services can be managed in Azure Automation by using the PowerShell cmdlets that are available in the Azure PowerShell tools.\nBox 3: Yes -",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Easily manage your Azure storage accounts in the cloud, from Windows, macOS, or Linux, using Azure Storage Explorer.",
-        "Azure cloud services can be managed in Azure Automation by using the PowerShell cmdlets that are available in the Azure PowerShell tools.",
-        "Reference:\nhttps://azure.microsoft.com/en-us/features/storage-explorer/\nhttps://docs.microsoft.com/en-us/azure/cloud-services/automation-manage-cloud-services"
-      ]
+      "answer": "B",
+      "explanation": "https://azure.microsoft.com/en-us/features/storage-explorer/\nhttps://docs.microsoft.com/en-us/azure/cloud-services/automation-manage-cloud-services",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 212,
       "original_number": "212",
-      "question": "Azure Databricks is an Apache Spark-based analytics platform. The platform consists of several components including Machine Learning library. You want to use Databricks machine learning library to _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "train a machine learning model"
-        },
-        {
-          "letter": "B",
-          "text": "implement linear algebra"
-        },
-        {
-          "letter": "C",
-          "text": "implement computer vision"
-        },
-        {
-          "letter": "D",
-          "text": "run SQL queries"
-        }
-      ],
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
       "answer": "A",
-      "explanation": "Azure Databricks is an Apache Spark-based analytics platform. The platform consists of several components including 'MLib'. Mlib is a\nMachine Learning library consisting of common learning algorithms and utilities, including classi+cation, regression, clustering, collaborative\n+ltering, dimensionality reduction, as well as underlying optimization primitives.",
-      "questionType": "MULTIPLE_CHOICE"
+      "explanation": "https://docs.microsoft.com/en-us/azure/azure-databricks/what-is-azure-databricks#apache-spark-based-analytics-platform",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 213,
       "original_number": "213",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n\n:",
       "options": [],
-      "answer": [
-        "Yes",
-        "Yes",
-        "Yes"
-      ],
-      "explanation": "Box 1: Yes -\nAzure Monitor maximizes the availability and performance of your applications and services by delivering a comprehensive solution for\ncollecting, analyzing, and acting on telemetry from your cloud and on-premises environments.\nBox 2: Yes -\nAlerts in Azure Monitor proactively notify you of critical conditions and potentially attempt to take corrective action.\nBox 3: Yes -\nAzure Monitor uses Target Resource, which is the scope and signals available for alerting. A target can be any Azure resource. Example targets:\na virtual machine, a storage account, a virtual machine scale set, a Log Analytics workspace, or an Application Insights resource.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Azure Monitor maximizes the availability and performance of your applications and services by delivering a comprehensive solution for\ncollecting, analyzing, and acting on telemetry from your cloud and",
-        "Alerts in Azure Monitor proactively notify you of critical conditions and potentially attempt to take corrective action.",
-        "Azure Monitor uses Target Resource, which is the scope and signals available for alerting"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/azure-monitor/overview https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-\noverview",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 214,
@@ -4096,20 +3517,11 @@
     {
       "id": 219,
       "original_number": "219",
-      "question": "You can use Azure Activity Log to view which user turned off a specific virtual machine during the last 14 days _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Yes"
-        },
-        {
-          "letter": "B",
-          "text": "No"
-        }
-      ],
-      "answer": "A",
-      "explanation": "You would use the Azure Activity Log, not Access Control to view which user turned off a speci+c virtual machine during the last 14 days.\nActivity logs are kept for 90 days. You can query for any range of dates, as long as the starting date isn't more than 90 days in the past.\nIn this question, we would create a +lter to display shutdown operations on the virtual machine in the last 14 days.",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "Y",
+      "explanation": "https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 220,
@@ -4210,38 +3622,20 @@
     {
       "id": 225,
       "original_number": "225",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\n\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "No",
-        "No"
-      ],
-      "explanation": "Box 1: No -\nAzure +rewall does not encrypt network trahc. It is used to block or allow trahc based on source/destination IP address, source/destination\nports and protocol.\n\nBox 2: No -\nA network security group does not encrypt network trahc. It works in a similar way to a +rewall in that it is used to block or allow trahc based\non source/ destination IP address, source/destination ports and protocol.\nBox 3: No -\nThe question is rather vague as it would depend on the con+guration of the host on the Internet. Windows Server does come with a VPN client\nand it also supports other encryption methods such IPSec encryption or SSL/TLS so it could encrypt the trahc if the Internet host was\ncon+gured to require or accept the encryption.\nHowever, the VM could not encrypt the trahc to an Internet host that is not con+gured to require the encryption.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Azure +rewall does not encrypt network trahc",
-        "A network security group does not encrypt network trahc",
-        "The question is rather vague as it would depend on the con+guration of the host on the Internet"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 226,
       "original_number": "226",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "Yes",
-        "No",
-        "Yes"
-      ],
-      "explanation": "Box 1: Yes -\nAzure Security Center is a uni+ed infrastructure security management system that strengthens the security posture of your data centers, and\nprovides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.\nBox 2: No -\nOnly two features: Continuous assessment and security recommendations, and Azure secure score, are free.\nBox 3: Yes -\nThe advanced monitoring capabilities in Security Center also let you track and manage compliance and governance over time. The overall\ncompliance provides you with a measure of how much your subscriptions are compliant with policies associated with your workload.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Azure Security Center is a uni+ed infrastructure security management system that strengthens the security posture of your data centers, and\nprovides advanced threat protection across your hybrid workl",
-        "Only two features: Continuous assessment and security recommendations, and Azure secure score, are free.",
-        "The advanced monitoring capabilities in Security Center also let you track and manage compliance and governance over time"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/security-center/security-center-intro",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 227,
@@ -4307,80 +3701,29 @@
     {
       "id": 230,
       "original_number": "230",
-      "question": "https://docs.microsoft.com/en-us/azure/sentinel/tutorial-respond-threats-playbook _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Option A (확인 필요)"
-        },
-        {
-          "letter": "B",
-          "text": "Option B (확인 필요)"
-        },
-        {
-          "letter": "C",
-          "text": "Option C (확인 필요)"
-        },
-        {
-          "letter": "D",
-          "text": "Option D (확인 필요)"
-        }
-      ],
-      "answer": "A",
-      "explanation": "Reference:\nhttps://docs.microsoft.com/en-us/azure/sentinel/tutorial-respond-threats-playbook",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "R",
+      "explanation": "https://docs.microsoft.com/en-us/azure/sentinel/tutorial-respond-threats-playbook",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 231,
       "original_number": "231",
-      "question": "https://docs.microsoft.com/en-us/azure/+rewall/tutorial-+rewall-dnat-policy _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Option A (확인 필요)"
-        },
-        {
-          "letter": "B",
-          "text": "Option B (확인 필요)"
-        },
-        {
-          "letter": "C",
-          "text": "Option C (확인 필요)"
-        },
-        {
-          "letter": "D",
-          "text": "Option D (확인 필요)"
-        }
-      ],
-      "answer": "A",
-      "explanation": "Reference:\nhttps://docs.microsoft.com/en-us/azure/+rewall/tutorial-+rewall-dnat-policy",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "R",
+      "explanation": "https://docs.microsoft.com/en-us/azure/+rewall/tutorial-+rewall-dnat-policy",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 232,
       "original_number": "232",
-      "question": "https://docs.microsoft.com/en-us/azure/ddos-protection/ddos-protection-overview _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Option A (확인 필요)"
-        },
-        {
-          "letter": "B",
-          "text": "Option B (확인 필요)"
-        },
-        {
-          "letter": "C",
-          "text": "Option C (확인 필요)"
-        },
-        {
-          "letter": "D",
-          "text": "Option D (확인 필요)"
-        }
-      ],
-      "answer": "A",
-      "explanation": "Reference:\nhttps://docs.microsoft.com/en-us/azure/ddos-protection/ddos-protection-overview",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "R",
+      "explanation": "https://docs.microsoft.com/en-us/azure/ddos-protection/ddos-protection-overview",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 233,
@@ -4534,20 +3877,11 @@
     {
       "id": 242,
       "original_number": "242",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes",
-        "Yes"
-      ],
-      "explanation": "Box 1: No -\nAzure creates the default rules in each network security group that you create. These rules allow some trahc.\nBox 2: Yes -\nA network security group contains zero, or as many rules as desired. These rules can refer to application security groups.\nBox 3: Yes -\nAzure creates the Inbound and OutBound default rules in each network security group that you create.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Azure creates the default rules in each network security group that you create",
-        "A network security group contains zero, or as many rules as desired",
-        "Azure creates the Inbound and OutBound default rules in each network security group that you create."
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 243,
@@ -4640,33 +3974,11 @@
     {
       "id": 249,
       "original_number": "249",
-      "question": "You need to configure security features for your Azure subscription.\n\nWhich Azure service should you use? To answer, select the appropriate options.\n\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nYou plan to implement several security services for an Azure environment. You need to identify which Azure services must be used to meet the\nfollowing security requirements:\n✑ Monitor threats by using sensors\n✑ Enforce Azure Multi-Factor Authentication (MFA) based on a condition\nWhich Azure service should you identify for each requirement? To answer, select the appropriate options in the answer area.\n\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
       "answer": "B",
-      "explanation": "Box 1:\nTo monitor threats by using sensors, you would use Azure Advanced Threat Protection (ATP).\nAzure Advanced Threat Protection (ATP) is a cloud-based security solution that leverages your on-premises Active Directory signals to identify,\ndetect, and investigate advanced threats, compromised identities, and malicious insider actions directed at your organization.\nSensors are software packages you install on your servers to upload information to Azure ATP.\nBox 2:\nTo enforce MFA based on a condition, you would use Azure Active Directory Identity Protection.\nAzure AD Identity Protection helps you manage the roll-out of Azure Multi-Factor Authentication (MFA) registration by con+guring a Conditional\nAccess policy to require MFA registration no matter what modern authentication app you are signing in to.",
-      "questionType": "MATCHING",
-      "matchingItems": [
-        {
-          "item": "Monitor threats by using sensors",
-          "options": [
-            "Azure Monitor",
-            "Azure Security Center",
-            "Azure Active Directory (Azure AD) Identity Protection",
-            "Azure Advanced Threat Protection (ATP)"
-          ],
-          "answer": "Azure Advanced Threat Protection (ATP)"
-        },
-        {
-          "item": "Enforce Azure MFA based on a condition",
-          "options": [
-            "Azure Monitor",
-            "Azure Security Center",
-            "Azure Active Directory (Azure AD) Identity Protection",
-            "Azure Advanced Threat Protection (ATP)"
-          ],
-          "answer": "Azure Active Directory (Azure AD) Identity Protection"
-        }
-      ]
+      "explanation": "https://docs.microsoft.com/en-us/azure-advanced-threat-protection/what-is-atp https://docs.microsoft.com/en-us/azure/active-\ndirectory/identity-protection/howto-identity-protection-con+gure-mfa-policy",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 250,
@@ -4697,28 +4009,11 @@
     {
       "id": 251,
       "original_number": "251",
-      "question": "You can enable just-in-time (JIT) VM access by using _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Azure Bastion"
-        },
-        {
-          "letter": "B",
-          "text": "Azure Firewall"
-        },
-        {
-          "letter": "C",
-          "text": "Azure Front Door"
-        },
-        {
-          "letter": "D",
-          "text": "Azure Security Center"
-        }
-      ],
-      "answer": "D",
-      "explanation": "The just-in-time (JIT) virtual machine (VM) access feature in Azure Security Center allows you to lock down inbound trahc to your Azure Virtual\nMachines. This reduces exposure to attacks while providing easy access when you need to connect to a VM.",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "T",
+      "explanation": "https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time?tabs=jit-con+g-asc%2Cjit-request-asc",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 252,
@@ -4836,20 +4131,11 @@
     {
       "id": 257,
       "original_number": "257",
-      "question": "A network security group works like a +rewall. You can attach a network security group to a virtual network and/or individual subnets within the",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Azure resources"
-        },
-        {
-          "letter": "B",
-          "text": "Azure resources in an Azure virtual network with"
-        }
-      ],
-      "answer": "A",
-      "explanation": "When you create a virtual machine, the default setting is to create a Network Security Group attached to the network interface assigned to a\nvirtual machine.\nA network security group works like a +rewall. You can attach a network security group to a virtual network and/or individual subnets within the\nvirtual network.\nYou can also attach a network security group to a network interface assigned to a virtual machine. You can use multiple network security\ngroups within a virtual network to restrict",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "W",
+      "explanation": "https://docs.microsoft.com/en-us/azure/virtual-network/security-overview",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 258,
@@ -4969,46 +4255,20 @@
     {
       "id": 264,
       "original_number": "264",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n\n:",
       "options": [],
-      "answer": [
-        "Yes",
-        "Yes",
-        "Yes"
-      ],
-      "explanation": "Box 1: Yes -\nThe tool you would use to sync the accounts is Azure AD Connect. The Azure Active Directory Connect synchronization services (Azure AD\nConnect sync) is a main component of Azure AD Connect. It takes care of all the operations that are related to synchronize identity data\nbetween your on-premises environment and\nAzure AD.\nBox 2: Yes -\nAs described above, third-party cloud services and on-premises Active Directory can be used to access Azure resources. This is known as\n'federation'.\nFederation is a collection of domains that have established trust. The level of trust may vary, but typically includes authentication and almost\nalways includes authorization. A typical federation might include a number of organizations that have established trust for shared access to a\nset of resources.\nBox 3: Yes -\n\nAzure Active Directory (Azure AD) is a centralized identity provider in the cloud. This is the primary built-in authentication and authorization\nservice to provide secure access to ",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "The tool you would use to sync the accounts is Azure AD Connect",
-        "As described above, third-party cloud services and on-premises Active Directory can be used to access Azure resources",
-        "Azure Active Directory (Azure AD) is a centralized identity provider in the cloud"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sync-whatis https://docs.microsoft.com/en-us/azure/active-\ndirectory/hybrid/whatis-fed https://docs.microsoft.com/en-us/azure/active-directory/develop/authentication-scenarios",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 265,
       "original_number": "265",
-      "question": "You can view your company's regulatory compliance report from _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Azure Advisor"
-        },
-        {
-          "letter": "B",
-          "text": "Azure Analysis Services"
-        },
-        {
-          "letter": "C",
-          "text": "Azure Monitor"
-        },
-        {
-          "letter": "D",
-          "text": "Azure Security Center"
-        }
-      ],
-      "answer": "D",
-      "explanation": "The advanced monitoring capabilities in Security Center lets you track and manage compliance and governance over time. The overall\ncompliance provides you with a measure of how much your subscriptions are compliant with policies associated with your workload.",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "T",
+      "explanation": "https://docs.microsoft.com/en-us/azure/security-center/security-center-intro",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 266,
@@ -5039,38 +4299,20 @@
     {
       "id": 267,
       "original_number": "267",
-      "question": "Azure Information Protection is used to automatically add a watermark to Microsoft Word documents that contain credit card information.",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Azure Information Protection is used to automatically add"
-        },
-        {
-          "letter": "B",
-          "text": "Azure Information Protection labels to apply classi"
-        }
-      ],
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
       "answer": "A",
-      "explanation": "Azure Information Protection is used to automatically add a watermark to Microsoft Word documents that contain credit card information.\nYou use Azure Information Protection labels to apply classi+cation to documents and emails. When you do this, the classi+cation is identi+able\nregardless of where the data is stored or with whom it's shared. The labels can include visual markings such as a header, footer, or watermark.\nLabels can be applied automatically by administrators who de+ne rules and con",
-      "questionType": "MULTIPLE_CHOICE"
+      "explanation": "https://docs.microsoft.com/en-us/azure/information-protection/what-is-information-protection https://docs.microsoft.com/en-\nus/azure/information-protection/infoprotect-quick-start-tutorial",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 268,
       "original_number": "268",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes",
-        "No"
-      ],
-      "explanation": "Box 1: No -\nAzure Active Directory (Azure AD) is a cloud-based service. It does not require domain controllers on virtual machines.\nBox 2: Yes -\nAzure Active Directory (Azure AD) is a centralized identity provider in the cloud. This is the primary built-in authentication and authorization\nservice to provide secure access to Azure resources and Microsoft 365.\nBox 3: No -\nUser accounts in Azure Active Directory can be assigned multiple licenses for different Azure or Microsoft 365 services.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Azure Active Directory (Azure AD) is a cloud-based service",
-        "Azure Active Directory (Azure AD) is a centralized identity provider in the cloud",
-        "User accounts in Azure Active Directory can be assigned multiple licenses for different Azure or Microsoft 365 services."
-      ]
+      "answer": "B",
+      "explanation": "",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 269,
@@ -5105,18 +4347,11 @@
     {
       "id": 270,
       "original_number": "270",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point\n\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "No"
-      ],
-      "explanation": "Box 1: No -\nIt is not true that you must deploy a federation solution or sync on-premises identities to the cloud. You can have a cloud-only environment and\nuse MFA.\nBox 2: No -\nPicture identi+cation and passport numbers are not valid MFA authentication methods. Valid methods include: Password, Microsoft\nAuthenticator App, SMS and\nVoice call.\nBox 3:\nYou can con+gure MFA to be required for administrator accounts only or you can con+gure MFA for any user account.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "It is not true that you must deploy a federation solution or sync on-premises identities to the cloud",
-        "Picture identi+cation and passport numbers are not valid MFA authentication methods"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-getstarted https://docs.microsoft.com/en-us/azure/active-\ndirectory/authentication/concept-authentication-methods",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 271,
@@ -5208,20 +4443,11 @@
     {
       "id": 275,
       "original_number": "275",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "Yes",
-        "Yes",
-        "Yes"
-      ],
-      "explanation": "Box 1: Yes -\nYou can send Azure AD activity logs to Azure Monitor logs to enable rich visualizations, monitoring and alerting on the connected data.\nAll data collected by Azure Monitor +ts into one of two fundamental types, metrics and logs (including Azure AD activity logs). Activity logs\nrecord when resources are created or modi+ed. Metrics tell you how the resource is performing and the resources that it's consuming.\nBox 2: Yes -\nAzure Monitor can consolidate log entries from multiple Azure resources, subscriptions, and tenants into one location for analysis together.\nBox 3: Yes -\nYou can create alerts in Azure Monitor.\nAlerts in Azure Monitor proactively notify you of critical conditions and potentially attempt to take corrective action. Alert rules based on\nmetrics provide near real time alerting based on numeric values, while rules based on logs allow for complex logic across data from multiple\nsources.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "You can send Azure AD activity logs to Azure Monitor logs to enable rich visualizations, monitoring and alerting on the connected data",
-        "Azure Monitor can consolidate log entries from multiple Azure resources, subscriptions, and tenants into one location for analysis together.",
-        "You can create alerts in Azure Monitor"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/overview",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 276,
@@ -5339,28 +4565,11 @@
     {
       "id": 281,
       "original_number": "281",
-      "question": "An Azure service is available to all Azure customers when it is in _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "public preview"
-        },
-        {
-          "letter": "B",
-          "text": "private preview"
-        },
-        {
-          "letter": "C",
-          "text": "development"
-        },
-        {
-          "letter": "D",
-          "text": "an Enterprise Agreement (EA) subscription"
-        }
-      ],
-      "answer": "A",
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "T",
       "explanation": "",
-      "questionType": "MULTIPLE_CHOICE"
+      "questionType": "HOT_AREA"
     },
     {
       "id": 282,
@@ -5400,20 +4609,11 @@
     {
       "id": 284,
       "original_number": "284",
-      "question": "The VNet will be marked as 'Non-compliant' when the policy is assigned. However, it will not be deleted and will continue to function normally.",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Azure Policy is"
-        },
-        {
-          "letter": "B",
-          "text": "Azure that you use to create"
-        }
-      ],
-      "answer": "A",
-      "explanation": "The VNet will be marked as 'Non-compliant' when the policy is assigned. However, it will not be deleted and will continue to function normally.\nAzure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over\nyour resources, so those resources stay compliant with your corporate standards and service level agreements.\nIf there are any existing resources that aren't compliant with a new policy assignment, they appear un",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "T",
+      "explanation": "https://docs.microsoft.com/en-us/azure/governance/policy/overview https://docs.microsoft.com/en-us/azure/governance/policy/assign-\npolicy-portal",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 285,
@@ -5427,20 +4627,11 @@
     {
       "id": 286,
       "original_number": "286",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n\n:",
       "options": [],
-      "answer": [
-        "Yes",
-        "Yes",
-        "No"
-      ],
-      "explanation": "Box 1: Yes -\nYou use Azure Policy to enforce tagging rules and conventions.\nBox 2: Yes -\nEach resource or resource group can have a maximum of 50 tags.\nBox 3: No -\nTags applied to the resource group or subscription aren't inherited by the resources.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "You use Azure Policy to enforce tagging rules and conventions.",
-        "Each resource or resource group can have a maximum of 50 tags.",
-        "Tags applied to the resource group or subscription aren't inherited by the resources."
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-policies https://docs.microsoft.com/en-\nus/azure/governance/policy/tutorials/govern-tags https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-\nresources",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 287,
@@ -5577,106 +4768,38 @@
     {
       "id": 296,
       "original_number": "296",
-      "question": "The Microsoft Privacy Statement explains what personal data Microsoft processes, how Microsoft processes the data, and _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "the purposes for processing the data"
-        },
-        {
-          "letter": "B",
-          "text": "how to contact Microsoft"
-        },
-        {
-          "letter": "C",
-          "text": "how to request deletion of the data"
-        },
-        {
-          "letter": "D",
-          "text": "the retention period for the data"
-        }
-      ],
-      "answer": "A",
-      "explanation": "The Microsoft Privacy Statement explains what personal data Microsoft processes, how Microsoft processes the data, and the purpose of\nprocessing the data",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "T",
+      "explanation": "https://privacy.microsoft.com/en-us/privacystatement",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 297,
       "original_number": "297",
-      "question": "Authentication is the process of verifying a user's _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "credentials"
-        },
-        {
-          "letter": "B",
-          "text": "authorization"
-        },
-        {
-          "letter": "C",
-          "text": "access level"
-        },
-        {
-          "letter": "D",
-          "text": "role"
-        }
-      ],
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
       "answer": "A",
-      "explanation": "Authentication, not authorization is the process of verifying a user's credentials.\nThe difference between authentication and authorization is:\n✑ Authentication is proving your identity, proving that you are who you say you are. The most common example of this is logging in to a system\nby providing credentials such as a username and password.\n✑ Authorization is what you're allowed to do once you've been authenticated. For example, what resources you're allowed to access and what\nyou can do with those resources.",
-      "questionType": "MULTIPLE_CHOICE"
+      "explanation": "",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 298,
       "original_number": "298",
-      "question": "https://docs.microsoft.com/en-us/azure/governance/policy/overview _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Option A (확인 필요)"
-        },
-        {
-          "letter": "B",
-          "text": "Option B (확인 필요)"
-        },
-        {
-          "letter": "C",
-          "text": "Option C (확인 필요)"
-        },
-        {
-          "letter": "D",
-          "text": "Option D (확인 필요)"
-        }
-      ],
-      "answer": "A",
-      "explanation": "Reference:\nhttps://docs.microsoft.com/en-us/azure/governance/policy/overview",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "R",
+      "explanation": "https://docs.microsoft.com/en-us/azure/governance/policy/overview",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 299,
       "original_number": "299",
-      "question": "https://docs.microsoft.com/en-us/azure/governance/policy/overview _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Option A (확인 필요)"
-        },
-        {
-          "letter": "B",
-          "text": "Option B (확인 필요)"
-        },
-        {
-          "letter": "C",
-          "text": "Option C (확인 필요)"
-        },
-        {
-          "letter": "D",
-          "text": "Option D (확인 필요)"
-        }
-      ],
-      "answer": "A",
-      "explanation": "Reference:\nhttps://docs.microsoft.com/en-us/azure/governance/policy/overview",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "R",
+      "explanation": "https://docs.microsoft.com/en-us/azure/governance/policy/overview",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 300,
@@ -5743,38 +4866,20 @@
     {
       "id": 305,
       "original_number": "305",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes",
-        "Yes"
-      ],
-      "explanation": "Box 1: No -\nAuthorization to access Azure resources can be provided by other identity providers by using federation. A commonly used example of this is to\nfederate your on- premises Active Directory environment with Azure AD and use this federation for authentication and authorization.\nBox 2: Yes -\nAs described above, third-party cloud services and on-premises Active Directory can be used to access Azure resources. This is known as\n'federation'.\nFederation is a collection of domains that have established trust. The level of trust may vary, but typically includes authentication and almost\nalways includes authorization. A typical federation might include a number of organizations that have established trust for shared access to a\nset of resources.\nBox 3: Yes -\nAzure Active Directory (Azure AD) is a centralized identity provider in the cloud. This is the primary built-in authentication and authorization\nservice to provide secure access to Azure resources.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Authorization to access Azure resources can be provided by other identity providers by using federation",
-        "As described above, third-party cloud services and on-premises Active Directory can be used to access Azure resources",
-        "Azure Active Directory (Azure AD) is a centralized identity provider in the cloud"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-fed https://docs.microsoft.com/en-us/azure/active-\ndirectory/develop/authentication-scenarios",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 306,
       "original_number": "306",
-      "question": "You can configure a lock on a resource group to prevent the accidental deletion of the resource group _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Yes"
-        },
-        {
-          "letter": "B",
-          "text": "No"
-        }
-      ],
-      "answer": "A",
-      "explanation": "You can con+gure a lock on a resource group to prevent the accidental deletion of the resource group. The lock applies to everyone, including\nglobal administrators. If you want to delete the resource group, the lock must be removed +rst.\nAs an administrator, you may need to lock a subscription, resource group, or resource to prevent other users in your organization from\naccidentally deleting or modifying critical resources. You can set the lock level to CanNotDelete or ReadOnly. In the portal, the locks are called\nDelete and Read-only respectively.\n✑ CanNotDelete means authorized users can still read and modify a resource, but they can't delete the resource.\nReadOnly means authorized users can read a resource, but they can't delete or update the resource. Applying this lock is similar to r",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "Y",
+      "explanation": "https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 307,
@@ -5823,28 +4928,11 @@
     {
       "id": 310,
       "original_number": "310",
-      "question": "An Azure service is available to all Azure customers when it is in _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "public preview"
-        },
-        {
-          "letter": "B",
-          "text": "private preview"
-        },
-        {
-          "letter": "C",
-          "text": "development"
-        },
-        {
-          "letter": "D",
-          "text": "an Enterprise Agreement (EA) subscription"
-        }
-      ],
-      "answer": "A",
-      "explanation": "Public Preview means that the service is in public beta and can be tried out by anyone with an Azure subscription. Services in public preview are\noften offered at a discount price.\nPublic previews are excluded from SLAs and in some cases, no support is offered.\nIncorrect Answers:\nServices in private preview are available only to selected people who has signed up to the private preview program.\n✑ Services in development are not available to the public.\n✑ Services provided under an Enterprise Agreement (EA) subscription are available only to the subscription owner.",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "P",
+      "explanation": "https://www.neowin.net/news/several-more-azure-services-now-available-in-private-public-preview/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 311,
@@ -5929,20 +5017,11 @@
     {
       "id": 315,
       "original_number": "315",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n\n:",
       "options": [],
-      "answer": [
-        "Yes",
-        "No",
-        "No"
-      ],
-      "explanation": "Box 1: Yes -\nMost services go to private preview then public preview before being released to general availability.\nThe private preview is only available to certain Azure customers for evaluation purposes. The public preview is available to all Azure customers.\nBox 2: No -\nAzure services in public preview can be managed using the regular management tools: Azure Portal, Azure CLI and PowerShell.\n\nBox 3: No -\nServices in private or public preview are usually offered at reduced costs. However, the costs increase, not decrease when the services are\nreleased to general availability.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Most services go to private preview then public preview before being released to general availability",
-        "Azure services in public preview can be managed using the regular management tools: Azure Portal, Azure CLI and PowerShell.",
-        "Services in private or public preview are usually offered at reduced costs"
-      ]
+      "answer": "B",
+      "explanation": "",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 316,
@@ -5973,24 +5052,11 @@
     {
       "id": 317,
       "original_number": "317",
-      "question": "A stopped (deallocated) VM is oline and not mounted on an Azure host server. Starting a VM mounts the VM on a host server before the VM",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Azure Active Directory user accounts so you can continue to create accounts"
-        },
-        {
-          "letter": "B",
-          "text": "Azure Portal"
-        },
-        {
-          "letter": "C",
-          "text": "Azure host server"
-        }
-      ],
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
       "answer": "A",
-      "explanation": "A stopped (deallocated) VM is oline and not mounted on an Azure host server. Starting a VM mounts the VM on a host server before the VM\nstarts. As soon as the VM is mounted, it becomes chargeable. For this reason, you are unable to start a VM after a trial has expired.\nIncorrect Answers:\n✑ You are not charged for Azure Active Directory user accounts so you can continue to create accounts.\n✑ You can access data that is already stored in Azure.\n✑ You can access the Azure Portal. You can also react",
-      "questionType": "MULTIPLE_CHOICE"
+      "explanation": "",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 318,
@@ -6065,38 +5131,20 @@
     {
       "id": 321,
       "original_number": "321",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "Yes",
-        "No",
-        "No"
-      ],
-      "explanation": "Box 1: Yes -\nAn Azure free account has a spending limit. This is currently 200 USD or 150 GBP.\nBox 2: No -\nAzure free account has a 5 GB blob storage limit and a 5 GB +le storage limit.\nBox 3: No -\nAzure free account has a limit of 10 web, mobile or API apps",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "An Azure free account has a spending limit",
-        "Azure free account has a 5 GB blob storage limit and a 5 GB +le storage limit.",
-        "Azure free account has a limit of 10 web, mobile or API apps"
-      ]
+      "answer": "B",
+      "explanation": "https://azure.microsoft.com/en-us/free/\nhttps://azure.microsoft.com/en-us/free/free-account-faq/\nhttps://docs.microsoft.com/en-us/azure/billing/billing-avoid-charges-free-account",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 322,
       "original_number": "322",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\n\nO S O\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes",
-        "No"
-      ],
-      "explanation": "Box 1: No -\nMost services go to private preview then public preview before being released to general availability. The private preview is only available to\ncertain Azure customers for evaluation purposes.\nBox 2: Yes -\nPublic Preview means that the service is in public beta and can be tried out by anyone with an Azure subscription. Services in public preview are\noften offered at a discount price.\nPublic previews are excluded from SLAs and in some cases, no support is offered.\n\nBox 3: No -\nAn Azure service in general availability is available to all Azure customers, not just a subset of the customers.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Most services go to private preview then public preview before being released to general availability",
-        "Public Preview means that the service is in public beta and can be tried out by anyone with an Azure subscription",
-        "An Azure service in general availability is available to all Azure customers, not just a subset of the customers."
-      ]
+      "answer": "B",
+      "explanation": "https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 323,
@@ -6119,38 +5167,20 @@
     {
       "id": 325,
       "original_number": "325",
-      "question": "Composite SLAs involve multiple services supporting an application, each with differing levels of availability. For example, consider an App",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Azure SQL Database"
-        },
-        {
-          "letter": "B",
-          "text": "Azure services have the following SLAs"
-        }
-      ],
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
       "answer": "C",
-      "explanation": "Composite SLAs involve multiple services supporting an application, each with differing levels of availability. For example, consider an App\nService web app that writes to Azure SQL Database. At the time of this writing, these Azure services have the following SLAs:\nApp Service web apps = 99.95%\n✑ SQL Database = 99.99%\nWhat is the maximum downtime you would expect for this application? If either service fails, the whole application fails. The probability of each\nservice failing is independent, s",
-      "questionType": "MULTIPLE_CHOICE"
+      "explanation": "https://docs.microsoft.com/en-us/azure/architecture/reliability/requirements#understand-service-level-agreements",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 326,
       "original_number": "326",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n\n:",
       "options": [],
-      "answer": [
-        "Yes",
-        "Yes",
-        "No"
-      ],
-      "explanation": "Box 1: Yes -\nSLA's vary based on the resource type and the location distribution of the resource. However, the minimum uptime for all Azure services is 99.9\npercent.\nBox 2: Yes -\nThe SLA guaranteed uptime is increased (usually to 99.95 percent) when resources are deployed across multiple regions.\nBox 3: No -\n\nThe number of subscriptions is unrelated to uptime SLA's. You can deploy resources to multiple regions under a single subscription or you can\nhave multiple subscriptions with resources deployed to the same region.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "SLA's vary based on the resource type and the location distribution of the resource",
-        "The SLA guaranteed uptime is increased (usually to 99.95 percent) when resources are deployed across multiple regions.",
-        "The number of subscriptions is unrelated to uptime SLA's"
-      ]
+      "answer": "B",
+      "explanation": "https://azure.microsoft.com/en-us/support/legal/sla/summary/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 327,
@@ -6190,20 +5220,11 @@
     {
       "id": 329,
       "original_number": "329",
-      "question": "Budget alerts notify you when spending, based on usage or cost, reaches or exceeds the amount defined in the alert condition of the budget _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Yes"
-        },
-        {
-          "letter": "B",
-          "text": "No"
-        }
-      ],
-      "answer": "A",
-      "explanation": "Budget alerts notify you when spending, based on usage or cost, reaches or exceeds the amount de+ned in the alert condition of the budget.\nCost Management budgets are created using the Azure portal or the Azure Consumption API.",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 330,
@@ -6217,20 +5238,11 @@
     {
       "id": 331,
       "original_number": "331",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "Yes",
-        "No",
-        "Yes"
-      ],
-      "explanation": "Box 1: Yes -\nWith Azure ExpressRoute, all inbound data transfer is free of charge.\nBox 2: No -\nInbound data trahc is free but outbound data trahc is not.\nBox 3: Yes -",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "With Azure ExpressRoute, all inbound data transfer is free of charge.",
-        "Inbound data trahc is free but outbound data trahc is not.",
-        "Reference:\nhttps://azure.microsoft.com/en-us/pricing/details/expressroute/ https://azure.microsoft.com/en-us/pricing/details/bandwidth/"
-      ]
+      "answer": "B",
+      "explanation": "https://azure.microsoft.com/en-us/pricing/details/expressroute/ https://azure.microsoft.com/en-us/pricing/details/bandwidth/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 332,
@@ -6261,74 +5273,38 @@
     {
       "id": 333,
       "original_number": "333",
-      "question": "When a virtual machine is stopped (deallocated), the virtual machine is unloaded/dismounted from the physical server in Azure. In this state,",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Azure and you are charged for the virtual machine itself as well as the"
-        },
-        {
-          "letter": "B",
-          "text": "Azure portal"
-        }
-      ],
-      "answer": "A",
-      "explanation": "When a virtual machine is stopped (deallocated), the virtual machine is unloaded/dismounted from the physical server in Azure. In this state,\nyou are not charged for the virtual machine itself. However, you are still charged for the storage costs of the virtual hard disks attached to the\nvirtual machine.\nIf the virtual machine is stopped but not deallocated (this happens if you shut down the virtual machine from the operating system of the virtual\nmachine), the virtual machine is still mounted o",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "W",
+      "explanation": "https://blogs.technet.microsoft.com/uspartner_ts2team/2014/10/10/azure-virtual-machines-stopping-versus-stopping-deallocating/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 334,
       "original_number": "334",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "No",
-        "No"
-      ],
-      "explanation": "Box 1: No -\nThe price of Azure storage varies by region. If you use the Azure storage pricing page, you can select different regions and see how the price\nchanges per region.\nBox 2: No -\nYou are charged for read and write operations in general-purpose v2 storage accounts.\nBox 3: No -\nYou would be charge for the read operations of the source storage account and write operations in the destination storage account.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "The price of Azure storage varies by region",
-        "You are charged for read and write operations in general-purpose v2 storage accounts.",
-        "You would be charge for the read operations of the source storage account and write operations in the destination storage account."
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview https://azure.microsoft.com/en-\ngb/pricing/details/storage/blobs/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 335,
       "original_number": "335",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "Yes",
-        "No",
-        "Yes"
-      ],
-      "explanation": "Box 1: Yes -\nMicrosoft guarantee at least 99.9% availability of the Azure Active Directory Premium edition services. The services are considered available in\nthe following scenarios:\n✑ Users are able to login to the service, login to the Access Panel, access applications on the Access Panel and reset passwords.\n✑ IT administrators are able to create, read, write and delete entries in the directory or provision or de-provision users to applications in the\ndirectory.\nBox 2: No -\nNo SLA is provided for the Free tier of Azure Active Directory.\nBox 3: Yes -\nYou can claim credit if the availability falls below the SLA. The amount of credit depends on the availability. For example: You can claim 25%\ncredit if the availability is less than 99.9%, 50% credit for less than 99% and 100% for less than 95% availability.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Microsoft guarantee at least 99.9% availability of the Azure Active Directory Premium edition services",
-        "No SLA is provided for the Free tier of Azure Active Directory.",
-        "You can claim credit if the availability falls below the SLA"
-      ]
+      "answer": "B",
+      "explanation": "https://azure.microsoft.com/en-gb/support/legal/sla/active-directory/v1_0/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 336,
       "original_number": "336",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "No",
-        "Yes"
-      ],
-      "explanation": "Box 1: No -\nResource groups are logical containers for Azure resources. You do not pay for resource groups.\nBox 2: No -\nData ingress over a VPN is data 'coming in' to Azure over the VPN. You are not charged data transfer costs for data ingress.\nBox 3: Yes -\nData egress over a VPN is data 'going out' of Azure over the VPN. You are charged for data egress.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Resource groups are logical containers for Azure resources",
-        "Data ingress over a VPN is data 'coming in' to Azure over the VPN",
-        "Data egress over a VPN is data 'going out' of Azure over the VPN"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/azure-resource-manager/manage-resource-groups-portal https://azure.microsoft.com/en-\nus/pricing/details/bandwidth/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 337,
@@ -6359,20 +5335,11 @@
     {
       "id": 338,
       "original_number": "338",
-      "question": "If the SLA for an Azure service is not met, you receive a credit that can be applied to your bill _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Yes"
-        },
-        {
-          "letter": "B",
-          "text": "No"
-        }
-      ],
-      "answer": "A",
-      "explanation": "If the SLA for an Azure service is not met, you receive credits for that service and that service only. The credits are deducted from your monthly\nbill for that service.\nIf you stopped using the service where the SLA was not met, your account would remain in credit for that service. The credits would not be\napplied to any other services that you may be using.\nService Credits apply only to fees paid for the particular Service, Service Resource, or Service tier for which a Service Level has not been met. In\ncases where\nService Levels apply to individual Service Resources or to separate Service tiers, Service Credits apply only to fees paid for the affected Service\nResource or\nService tier, as applicable. The Service Credits awarded in any billing month for a particular Service or Service Res",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "I",
+      "explanation": "https://azure.microsoft.com/en-gb/support/legal/sla/analysis-services/v1_0/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 339,
@@ -6403,20 +5370,11 @@
     {
       "id": 340,
       "original_number": "340",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes",
-        "No"
-      ],
-      "explanation": "Box 1: No -\nAzure Free Account gives you 12 months access to the most popular free services. It also gives you a credit (150 GBP or 200 USD) to use on\nany Azure service for up to 30 days.\nBox 2: Yes -\nAll free accounts expire after 12 months.\nBox 3: No -\nYou can only create one free Azure account per Microsoft account.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Azure Free Account gives you 12 months access to the most popular free services",
-        "All free accounts expire after 12 months.",
-        "You can only create one free Azure account per Microsoft account."
-      ]
+      "answer": "B",
+      "explanation": "https://azure.microsoft.com/en-gb/free/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 341,
@@ -6580,38 +5538,20 @@
     {
       "id": 353,
       "original_number": "353",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes",
-        "Yes"
-      ],
-      "explanation": "Box 1: No -\nWithin most of the areas, there are clearly more expensive regions and less expensive regions.\nThe least expensive regions, on average across these instance types are us-west-2, us-west-central, and korea-south.\nThe most expensive regions are asia-paci+c-east, japan-east, and australia-east.\nBox 2: Yes -\nMany organizations with Microsoft Enterprise Agreements (EA) are adding Azure to their EA to enjoy the bene+ts it offers, such as:\nMinimizing Azure upfront costs by locking in pricing with consumption pre-commitment\nUsing Azure EA Portal to manage Azure Subscriptions easily and organize them under a single billing account\nBox 3: Yes -",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Within most of the areas, there are clearly more expensive regions and less expensive regions",
-        "Many organizations with Microsoft Enterprise Agreements (EA) are adding Azure to their EA to enjoy the bene+ts it offers, such as:\nMinimizing Azure upfront costs by locking in pricing with consumption",
-        "Reference:\nhttps://www.parkmycloud.com/blog/azure-region-pricing/\nhttps://blog.turbonomic.com/introducing-microsoft-azure-enterprise-agreement-ea-support-in-turbonomic-6.4"
-      ]
+      "answer": "B",
+      "explanation": "https://www.parkmycloud.com/blog/azure-region-pricing/\nhttps://blog.turbonomic.com/introducing-microsoft-azure-enterprise-agreement-ea-support-in-turbonomic-6.4",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 354,
       "original_number": "354",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "Yes",
-        "No",
-        "Yes"
-      ],
-      "explanation": "Box 1: Yes -\nThe Pay as You Go model is billed on a per second basis and you can start or stop the service at any time ג€\" paying only for what you use.\nBox 2: No -\nNo, it is OpEx (Operational Expenditures).\nOpEx: The business can achieve ROI immediately in many cases because the infrastructure is managed by the cloud provider.\nCapEx: ROI is not usually realized until a long time after the purchase was made because the infrastructure needs to be set up and employees\nneed to be trained.\nComputers, servers, and other hardware needed for on-premises data centers are all examples of CapEx.\nBox 3: Yes -\nOperational Expenditures (OpEx) are the ongoing costs related to day-to-day operations. A subscription fee for cloud services is considered\nOpExג€\"the cloud provider is making the infrastructure investment upfront, and you only pay for the resources you need as you need them.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "The Pay as You Go model is billed on a per second basis and you can start or stop the service at any time ג€\" paying only for what you use.",
-        "No, it is OpEx (Operational Expenditures)",
-        "Operational Expenditures (OpEx) are the ongoing costs related to day-to-day operations"
-      ]
+      "answer": "B",
+      "explanation": "https://azure.microsoft.com/en-us/pricing/purchase-options/pay-as-you-go/ https://blogs.vmware.com/cloudhealth/capex-vs-opex-cloud-cost-\nmanagement/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 355,
@@ -6642,20 +5582,11 @@
     {
       "id": 356,
       "original_number": "356",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes",
-        "No"
-      ],
-      "explanation": "Box 1: No -\nServices in private preview can be viewed in the regular Azure portal. However, you need to be signed up for the feature in private preview\nbefore you can view it.\nAccess to private preview features is usually by invitation only.\nBox 2: Yes -\nYou can use services in public preview in production environments. However, you should be aware that the service may have faults, is not\nsubject to an SLA and may be withdrawn without notice.\nBox 3: No -\nPublic previews are excluded from SLAs and in some cases, no support is offered.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Services in private preview can be viewed in the regular Azure portal",
-        "You can use services in public preview in production environments",
-        "Public previews are excluded from SLAs and in some cases, no support is offered."
-      ]
+      "answer": "P",
+      "explanation": "https://www.neowin.net/news/several-more-azure-services-now-available-in-private-public-preview/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 357,
@@ -6686,20 +5617,11 @@
     {
       "id": 358,
       "original_number": "358",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes",
-        "No"
-      ],
-      "explanation": "Box 1: No -\nAn Azure free account comes with a 'basic' support plan, not a 'standard' support plan.\nBox 2: Yes -\nYou can purchase the Professional Direct, Standard, and Developer support plans with the Microsoft Customer Agreement. You can also\npurchase the\nProfessional and Standard support plans with the Enterprise Agreement.\nBox 3: No -\nUsers with any type of Azure subscription (pay-as-you-go, Enterprise Agreement, Microsoft Customer Agreement etc.) can get support from the\nMSDN forums.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "An Azure free account comes with a 'basic' support plan, not a 'standard' support plan.",
-        "You can purchase the Professional Direct, Standard, and Developer support plans with the Microsoft Customer Agreement",
-        "Users with any type of Azure subscription (pay-as-you-go, Enterprise Agreement, Microsoft Customer Agreement etc.) can get support from the\nMSDN forums."
-      ]
+      "answer": "B",
+      "explanation": "https://azure.microsoft.com/en-us/support/plans/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 359,
@@ -6730,38 +5652,20 @@
     {
       "id": 360,
       "original_number": "360",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "No",
-        "Yes",
-        "Yes"
-      ],
-      "explanation": "Box 1: No -\nYou need to be an administrator of the billing account that has the subscription to be able to transfer the subscription. This could be a Billing\nAdministrator or\nGlobal Administrator. A subscription owner can manage all resources and permissions within the subscription but cannot transfer ownership of\nthe subscription.\nBox 2: Yes -\nYou can convert a free trial subscription to Pay-As-You-Go. This is common practice for people who wish to continue using the Azure services\nwhen the free trial period expires.\nBox 3: Yes -\nYou can remove the spending limit, but you can't increase or decrease it.\nThe spending limit in Azure prevents spending over your credit amount. All new customers who sign up for an Azure free account or\nsubscription types that include credits over multiple months have the spending limit turned on by default. The spending limit is equal to the\namount of credit and it can't be changed. For example, if you signed up for Azure free account, your spending limit i",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "You need to be an administrator of the billing account that has the subscription to be able to transfer the subscription",
-        "You can convert a free trial subscription to Pay-As-You-Go",
-        "You can remove the spending limit, but you can't increase or decrease it"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/billing/billing-add-change-azure-subscription-administrator https://docs.microsoft.com/en-\nus/azure/billing/billing-upgrade-azure-subscription https://docs.microsoft.com/en-us/azure/billing/billing-spending-limit",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 361,
       "original_number": "361",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": [
-        "Yes",
-        "No",
-        "Yes"
-      ],
-      "explanation": "Box 1: Yes -\nA reservation is where you commit to pay for a resource (for example a virtual machine) for one or three years. This gives you a discounted\nprice on the resource for the reservation period.\nBox 2: No -\nThere are other factors that injuence the cost of a virtual machine such as the virtual hard disks attached to the virtual machine. You could\nhave multiple virtual machines with the same 'size' (B2S in this case) but with different virtual hard disk con+gurations.\nBox 3: Yes -\nWhen a virtual machine is stopped (deallocated), the virtual machine is unloaded/dismounted from the physical server in Azure. In this state,\nyou are not charged for the virtual machine itself. However, you are still charged for the storage costs of the virtual hard disks attached to the\nvirtual machine.\nIf the virtual machine is stopped but not deallocated (this happens if you shut down the virtual machine from the operating system of the virtual\nmachine), the virtual machine is still mounted on the p",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "A reservation is where you commit to pay for a resource (for example a virtual machine) for one or three years",
-        "There are other factors that injuence the cost of a virtual machine such as the virtual hard disks attached to the virtual machine",
-        "When a virtual machine is stopped (deallocated), the virtual machine is unloaded/dismounted from the physical server in Azure"
-      ]
+      "answer": "B",
+      "explanation": "https://azure.microsoft.com/en-us/reservations/\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/linux/b-series-burstable\nhttps://blogs.technet.microsoft.com/uspartner_ts2team/2014/10/10/azure-virtual-machines-stopping-versus-stopping-deallocating/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 362,
@@ -6820,58 +5724,20 @@
     {
       "id": 365,
       "original_number": "365",
-      "question": "How should you calculate the monthly uptime percentage?\n\nFormula: A ÷ B × C\n\nTo answer, select the appropriate options for A, B, and C.\n\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nHow should you calculate the monthly uptime percentage? To answer, select the appropriate options in the answer area.\nNOTE: Each correct selection is worth one point.\n:",
       "options": [],
-      "answer": "\"",
-      "explanation": "Monthly Uptime % = (Maximum Available Minutes - Downtime in Minutes) / Maximum Available Minutes × 100\n\nA = (Maximum Available Minutes - Downtime in Minutes)\nB = Maximum Available Minutes\nC = 100",
-      "questionType": "MATCHING",
-      "matchingItems": [
-        {
-          "item": "A",
-          "options": [
-            "Downtime in Minutes",
-            "Maximum Available Minutes",
-            "(Maximum Available Minutes - Downtime in Minutes)"
-          ],
-          "answer": "(Maximum Available Minutes - Downtime in Minutes)"
-        },
-        {
-          "item": "B",
-          "options": [
-            "60",
-            "1,440",
-            "Maximum Available Minutes"
-          ],
-          "answer": "Maximum Available Minutes"
-        },
-        {
-          "item": "C",
-          "options": [
-            "100",
-            "99.99",
-            "1.440"
-          ],
-          "answer": "100"
-        }
-      ]
+      "answer": "",
+      "explanation": "https://azure.microsoft.com/en-au/support/legal/sla/cloud-services/v1_0/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 366,
       "original_number": "366",
-      "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
+      "question": "HOTSPOT -\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.\n\n:",
       "options": [],
-      "answer": [
-        "No",
-        "No",
-        "Yes"
-      ],
-      "explanation": "Box 1: No -\nResource groups are logical containers for Azure resources. You do not pay for resource groups.\nBox 2: No -\nData ingress over a VPN is data 'coming in' to Azure over the VPN. You are not charged data transfer costs for data ingress.\nBox 3: Yes -\nData egress over a VPN is data 'going out' of Azure over the VPN. You are charged for data egress.",
-      "questionType": "HOTSPOT",
-      "statements": [
-        "Resource groups are logical containers for Azure resources",
-        "Data ingress over a VPN is data 'coming in' to Azure over the VPN",
-        "Data egress over a VPN is data 'going out' of Azure over the VPN"
-      ]
+      "answer": "B",
+      "explanation": "https://docs.microsoft.com/en-us/azure/azure-resource-manager/manage-resource-groups-portal https://azure.microsoft.com/en-\nus/pricing/details/bandwidth/ https://azure.microsoft.com/en-us/pricing/details/bandwidth/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 367,
@@ -6998,28 +5864,11 @@
     {
       "id": 372,
       "original_number": "372",
-      "question": "All Azure services that are in public preview are _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "provided without any documentation"
-        },
-        {
-          "letter": "B",
-          "text": "only configurable from Azure CLI"
-        },
-        {
-          "letter": "C",
-          "text": "excluded from the Service Level Agreements"
-        },
-        {
-          "letter": "D",
-          "text": "only configurable from the Azure portal"
-        }
-      ],
-      "answer": "C",
-      "explanation": "Preview features are made available to you on the condition that you accept additional terms which supplement the regular Azure terms. The\nsupplemental terms state:\nPREVIEWS ARE PROVIDED \"AS-IS,\" \"WITH ALL FAULTS,\" AND \"AS AVAILABLE,\" AND ARE EXCLUDED FROM THE SERVICE LEVEL AGREEMENTS\nAND\nLIMITED WARRANTY.",
-      "questionType": "MULTIPLE_CHOICE"
+      "question": "HOTSPOT -\nTo complete the sentence, select the appropriate option in the answer area.\n:",
+      "options": [],
+      "answer": "P",
+      "explanation": "https://azure.microsoft.com/en-gb/support/legal/preview-supplemental-terms/",
+      "questionType": "HOT_AREA"
     },
     {
       "id": 373,
@@ -7494,28 +6343,11 @@
     {
       "id": 403,
       "original_number": "403",
-      "question": "You need to create a _______ new user for an Azure subscription.",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Option A - See explanation"
-        },
-        {
-          "letter": "B",
-          "text": "Option B - See explanation"
-        },
-        {
-          "letter": "C",
-          "text": "Option C - See explanation"
-        },
-        {
-          "letter": "D",
-          "text": "Option D - See explanation"
-        }
-      ],
-      "answer": "A",
+      "question": "HOTSPOT\n-\nYou need to create a new user for an Azure subscription.\nWhat should you use? To answer, select the service in the answer area.\nNOTE: Each correct match is worth one point.",
+      "options": [],
+      "answer": "T",
       "explanation": "",
-      "questionType": "MULTIPLE_CHOICE"
+      "questionType": "HOTSPOT"
     },
     {
       "id": 404,

@@ -1,0 +1,24 @@
+{
+  "name": "quiz-app",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chah98h-lang/quiz-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chah98h-lang/quiz-app/issues"
+  },
+  "homepage": "https://github.com/chah98h-lang/quiz-app#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

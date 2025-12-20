@@ -142,7 +142,7 @@ body {
    HEADER
    ======================================== */
 .header {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: 2rem;
     animation: slideDown 0.6s ease;
 }
 
@@ -150,16 +150,16 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 1rem;
     flex-wrap: wrap;
-    gap: var(--spacing-md);
+    gap: 1rem;
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
-    font-size: 1.75rem;
+    font-size: 1.4rem;
     font-weight: 800;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
@@ -168,13 +168,13 @@ body {
 }
 
 .logo-icon {
-    font-size: 2rem;
+    font-size: 1.6rem;
     filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.5));
 }
 
 .header-stats {
     display: flex;
-    gap: var(--spacing-lg);
+    gap: 1.2rem;
 }
 
 .stat-item {
@@ -184,14 +184,14 @@ body {
 }
 
 .stat-label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 .stat-value {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--text-primary);
 }
@@ -211,6 +211,44 @@ body {
     border-radius: 999px;
     transition: width var(--transition-slow);
     box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+}
+
+/* ========================================
+   QUESTION JUMP BUTTONS
+   ======================================== */
+.question-jump-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.jump-btn {
+    padding: 0.4rem 0.8rem;
+    background: var(--bg-glass);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    backdrop-filter: blur(10px);
+}
+
+.jump-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-primary);
+    color: var(--text-primary);
+    transform: translateY(-1px);
+}
+
+.jump-btn.active {
+    background: var(--gradient-primary);
+    border-color: var(--accent-primary);
+    color: white;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
 }
 
 /* ========================================
@@ -330,6 +368,23 @@ body {
     box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
 }
 
+.search-next-btn {
+    margin-left: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--gradient-primary);
+    border: 1px solid var(--accent-primary);
+    border-radius: var(--radius-md);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.search-next-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
 #searchCloseBtn {
     margin-left: var(--spacing-sm);
     padding: var(--spacing-sm) var(--spacing-md);
@@ -443,7 +498,7 @@ body {
 }
 
 .question-text {
-    font-size: 1.5rem;
+    font-size: 1.05rem;
     font-weight: 500;
     line-height: 1.6;
     color: var(--text-primary);
@@ -466,7 +521,7 @@ body {
 }
 
 .explanation {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--text-secondary);
     line-height: 1.8;
     padding: var(--spacing-md);
@@ -504,7 +559,7 @@ body {
     border: 2px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--radius-md);
     color: var(--text-primary);
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 500;
     text-align: left;
     cursor: pointer;
@@ -617,13 +672,13 @@ body {
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
-    padding: var(--spacing-sm) var(--spacing-lg);
+    padding: 0.7rem 1.2rem;
     background: var(--bg-glass);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--radius-md);
     backdrop-filter: blur(10px);
     color: var(--text-primary);
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
     transition: all var(--transition-normal);
@@ -641,14 +696,14 @@ body {
 }
 
 .nav-icon {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
 }
 
 .question-indicator {
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--text-secondary);
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: 0.7rem 1.2rem;
     background: var(--bg-glass);
     border-radius: var(--radius-md);
     backdrop-filter: blur(10px);
@@ -738,6 +793,15 @@ body {
     
     .footer-hint {
         display: none;
+    }
+    
+    .question-jump-buttons {
+        gap: 0.3rem;
+    }
+    
+    .jump-btn {
+        padding: 0.35rem 0.65rem;
+        font-size: 0.7rem;
     }
 }
 
@@ -846,7 +910,7 @@ body {
     display: flex;
     align-items: center;
     color: var(--text-primary);
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.5;
 }
 
@@ -876,6 +940,20 @@ body {
 .hotspot-checkbox.wrong-answer {
     background: rgba(239, 68, 68, 0.2);
     border-radius: var(--radius-sm);
+}
+
+/* 사용자가 맞게 선택한 경우 */
+.hotspot-checkbox.user-correct {
+    background: rgba(16, 185, 129, 0.3);
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--accent-success);
+}
+
+/* 사용자가 틀리게 선택한 경우 */
+.hotspot-checkbox.user-incorrect {
+    background: rgba(239, 68, 68, 0.3);
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--accent-error);
 }
 
 .submit-hotspot-btn {
@@ -960,7 +1038,7 @@ body {
 }
 
 .matching-item-label {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--text-primary);
     font-weight: 500;
 }
@@ -1047,7 +1125,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: var(--radius-sm);
     color: var(--text-primary);
-    font-size: 1rem;
+    font-size: 0.95rem;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -1105,6 +1183,150 @@ body {
     
     .matching-dropdown {
         font-size: 0.9rem;
+    }
+}
+
+/* ========================================
+   DRAG AND DROP QUESTIONS
+   ======================================== */
+.drag-drop-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin: var(--spacing-md) 0;
+}
+
+.drag-options-panel {
+    background: var(--bg-glass);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+}
+
+.drag-options-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.drag-option {
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    background: var(--gradient-primary);
+    border: 2px solid var(--accent-primary);
+    border-radius: var(--radius-sm);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: grab;
+    transition: all var(--transition-fast);
+    text-align: center;
+}
+
+.drag-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.drag-option.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+}
+
+.drag-option.used {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.drop-zones-panel {
+    background: var(--bg-glass);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+}
+
+.drop-zones-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.drop-zone-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-sm);
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-sm);
+}
+
+.drop-zone-description {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.drop-zone {
+    min-height: 50px;
+    padding: var(--spacing-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.drop-zone.drag-over {
+    background: rgba(99, 102, 241, 0.2);
+    border-color: var(--accent-primary);
+    border-style: solid;
+}
+
+.drop-zone.filled {
+    background: var(--gradient-primary);
+    border-style: solid;
+    border-color: var(--accent-primary);
+}
+
+.drop-zone.correct {
+    background: var(--gradient-success);
+    border-color: var(--accent-success);
+}
+
+.drop-zone.incorrect {
+    background: var(--gradient-error);
+    border-color: var(--accent-error);
+}
+
+.dropped-item {
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+}
+
+.submit-drag-drop-btn {
+    margin-top: var(--spacing-md);
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .drag-drop-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .drop-zone-row {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xs);
     }
 }
 

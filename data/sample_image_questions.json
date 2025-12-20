@@ -1,0 +1,92 @@
+{
+  "title": "AZ-900 Azure Fundamentals - 이미지 문제 샘플",
+  "description": "DRAG DROP, Hot Area, Hotspot 문제 예시",
+  "totalQuestions": 3,
+  "questions": [
+    {
+      "id": 999,
+      "original_number": "SAMPLE-1",
+      "questionType": "DRAG_DROP",
+      "question": "[샘플] You need to match Azure services to their appropriate categories. Drag each service to the correct category.",
+      "image": "images/sample_dragdrop.png",
+      "imageDescription": "Azure services categorization diagram with empty boxes",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Azure Virtual Machines → Compute Services"
+        },
+        {
+          "letter": "B",
+          "text": "Azure Blob Storage → Storage Services"
+        },
+        {
+          "letter": "C",
+          "text": "Azure SQL Database → Database Services"
+        },
+        {
+          "letter": "D",
+          "text": "Azure App Service → Compute Services"
+        }
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "All mappings are correct: VM and App Service are compute; Blob Storage is storage; SQL Database is a database service."
+    },
+    {
+      "id": 1000,
+      "original_number": "SAMPLE-2",
+      "questionType": "HOT_AREA",
+      "question": "[샘플] You are viewing the Azure Portal. You need to identify where to find the subscription ID. Select the appropriate area in the screenshot.",
+      "image": "images/sample_hotarea.png",
+      "imageDescription": "Azure Portal screenshot showing subscription overview page",
+      "options": [
+        {
+          "letter": "A",
+          "text": "The Subscription ID field in the Overview section"
+        },
+        {
+          "letter": "B",
+          "text": "The Resource ID in Properties"
+        },
+        {
+          "letter": "C",
+          "text": "The Tenant ID field"
+        },
+        {
+          "letter": "D",
+          "text": "The Directory ID"
+        }
+      ],
+      "answer": "A",
+      "explanation": "The Subscription ID is clearly displayed in the Overview section of the subscription details page."
+    },
+    {
+      "id": 1001,
+      "original_number": "SAMPLE-3",
+      "questionType": "HOTSPOT",
+      "question": "[샘플] Review the network security group (NSG) rules shown in the diagram. For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+      "image": "images/sample_hotspot.png",
+      "imageDescription": "Network Security Group rules table showing inbound and outbound rules",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Statement 1: HTTP traffic on port 80 is allowed from the internet → YES"
+        },
+        {
+          "letter": "B",
+          "text": "Statement 2: SSH traffic on port 22 is blocked from all sources → NO"
+        },
+        {
+          "letter": "C",
+          "text": "Statement 3: All outbound traffic to the internet is allowed → YES"
+        },
+        {
+          "letter": "D",
+          "text": "Statement 4: RDP traffic on port 3389 is allowed from specific IP → YES"
+        }
+      ],
+      "answer": "A,C,D",
+      "explanation": "Based on the NSG rules: HTTP (80) is allowed inbound, SSH (22) is allowed from specific IPs (not blocked from all), outbound traffic is allowed by default, and RDP (3389) is allowed from a specific IP address."
+    }
+  ]
+}
+

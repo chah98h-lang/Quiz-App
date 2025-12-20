@@ -16,6 +16,7 @@ const elements = {
     progressText: document.getElementById('progressText'),
     scoreText: document.getElementById('scoreText'),
     progressBar: document.getElementById('progressBar'),
+    questionJumpButtons: document.getElementById('questionJumpButtons'),
 
     // Controls
     shuffleBtn: document.getElementById('shuffleBtn'),
@@ -24,6 +25,7 @@ const elements = {
     searchBtn: document.getElementById('searchBtn'),
     searchBox: document.getElementById('searchBox'),
     searchInput: document.getElementById('searchInput'),
+    searchNextBtn: document.getElementById('searchNextBtn'),
     searchCloseBtn: document.getElementById('searchCloseBtn'),
 
     // Quiz
@@ -47,7 +49,7 @@ const elements = {
 async function init() {
     try {
         // Load quiz data
-        const response = await fetch('quiz_data.json');
+        const response = await fetch('data/quiz_data.json');
         quizData = await response.json();
 
         // Initialize shuffled questions (original order)
@@ -55,6 +57,9 @@ async function init() {
 
         // Load bookmarks from localStorage
         loadBookmarks();
+
+        // Create question jump buttons
+        createQuestionJumpButtons();
 
         // Display first question
         displayQuestion();
@@ -78,8 +83,15 @@ function setupEventListeners() {
     elements.shuffleBtn.addEventListener('click', shuffleQuestions);
     elements.bookmarkBtn.addEventListener('click', toggleBookmark);
     elements.searchBtn.addEventListener('click', toggleSearch);
+    elements.searchNextBtn.addEventListener('click', searchNextQuestion);
     elements.searchCloseBtn.addEventListener('click', toggleSearch);
-    elements.searchInput.addEventListener('input', handleSearch);
+
+    // Search on Enter key
+    elements.searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            searchNextQuestion();
+        }
+    });
 
     // Navigation
     elements.prevBtn.addEventListener('click', previousQuestion);
@@ -98,7 +110,7 @@ function displayQuestion() {
 
     // Update question
     elements.quizQuestionNumber.textContent = `Q${question.id}`;
-    elements.quizQuestionText.textContent = question.question;
+    elements.quizQuestionText.innerHTML = question.question.replace(/\n/g, '<br>');
 
     // Clear previous options
     elements.optionsContainer.innerHTML = '';
@@ -115,14 +127,14 @@ function displayQuestion() {
     if (question.image) {
         const imageContainer = document.createElement('div');
         imageContainer.className = 'question-image';
-        
+
         const img = document.createElement('img');
         img.src = question.image;
         img.alt = 'Question Image';
         img.onerror = () => {
             imageContainer.innerHTML = '<p class="image-error">⚠️ 이미지를 불러올 수 없습니다.</p>';
         };
-        
+
         imageContainer.appendChild(img);
         elements.quizQuestionText.after(imageContainer);
     }
@@ -134,6 +146,8 @@ function displayQuestion() {
         displayMatchingQuestion(question);
     } else if (question.questionType === 'DROPDOWN' && question.dropdowns) {
         displayDropdownQuestion(question);
+    } else if (question.questionType === 'DRAG_DROP' && question.dragOptions) {
+        displayDragDropQuestion(question);
     } else if (question.questionType === 'MULTIPLE_CHOICE_MULTI') {
         displayMultipleChoiceMultiQuestion(question);
     } else {
@@ -148,9 +162,9 @@ function displayQuestion() {
             if (answeredQuestions.has(question.id)) {
                 button.disabled = true;
                 // 복수 정답 확인
-                const correctAnswers = question.answer.includes('\n') || question.answer.includes(',') ? 
+                const correctAnswers = question.answer.includes('\n') || question.answer.includes(',') ?
                     question.answer.split(/[\n,]/).map(a => a.trim()) : [question.answer];
-                
+
                 if (correctAnswers.includes(option.letter)) {
                     button.classList.add('correct');
                 }
@@ -179,62 +193,62 @@ function displayQuestion() {
 // ========================================
 function displayHotspotQuestion(question) {
     const container = elements.optionsContainer;
-    
+
     // 테이블 생성
     const table = document.createElement('div');
     table.className = 'hotspot-table';
-    
+
     // 헤더
     const header = document.createElement('div');
     header.className = 'hotspot-header';
     header.innerHTML = `
         <div class="hotspot-col-statement">Statements</div>
-        <div class="hotspot-col-answer">Yes</div>
-        <div class="hotspot-col-answer">No</div>
+        <div class="hotspot-col-answer">예</div>
+        <div class="hotspot-col-answer">아니오</div>
     `;
     table.appendChild(header);
-    
+
     // 각 statement에 대한 행 생성
     question.statements.forEach((statement, index) => {
         const row = document.createElement('div');
         row.className = 'hotspot-row';
         row.dataset.index = index;
-        
+
         // Statement 텍스트
         const statementDiv = document.createElement('div');
         statementDiv.className = 'hotspot-statement';
         statementDiv.textContent = statement;
         row.appendChild(statementDiv);
-        
+
         // Yes 체크박스
         const yesDiv = document.createElement('div');
         yesDiv.className = 'hotspot-checkbox';
         const yesInput = document.createElement('input');
         yesInput.type = 'radio';
         yesInput.name = `statement-${index}`;
-        yesInput.value = 'Yes';
+        yesInput.value = '예';
         yesInput.id = `q${question.id}-s${index}-yes`;
         yesDiv.appendChild(yesInput);
         row.appendChild(yesDiv);
-        
+
         // No 체크박스
         const noDiv = document.createElement('div');
         noDiv.className = 'hotspot-checkbox';
         const noInput = document.createElement('input');
         noInput.type = 'radio';
         noInput.name = `statement-${index}`;
-        noInput.value = 'No';
+        noInput.value = '아니오';
         noInput.id = `q${question.id}-s${index}-no`;
         noDiv.appendChild(noInput);
         row.appendChild(noDiv);
-        
+
         // 이미 답변한 경우 표시
         if (answeredQuestions.has(question.id)) {
             yesInput.disabled = true;
             noInput.disabled = true;
-            
+
             const correctAnswer = question.answer[index];
-            if (correctAnswer === 'Yes') {
+            if (correctAnswer === '예') {
                 yesInput.checked = true;
                 yesDiv.classList.add('correct-answer');
             } else {
@@ -242,12 +256,12 @@ function displayHotspotQuestion(question) {
                 noDiv.classList.add('correct-answer');
             }
         }
-        
+
         table.appendChild(row);
     });
-    
+
     container.appendChild(table);
-    
+
     // 제출 버튼 (아직 답변하지 않은 경우)
     if (!answeredQuestions.has(question.id)) {
         const submitBtn = document.createElement('button');
@@ -261,41 +275,46 @@ function displayHotspotQuestion(question) {
 function submitHotspotAnswer(question) {
     const userAnswers = [];
     let allAnswered = true;
-    
+
     // 각 statement의 답변 수집
     question.statements.forEach((statement, index) => {
         const yesInput = document.getElementById(`q${question.id}-s${index}-yes`);
         const noInput = document.getElementById(`q${question.id}-s${index}-no`);
-        
+
         if (yesInput.checked) {
-            userAnswers.push('Yes');
+            userAnswers.push('예');
         } else if (noInput.checked) {
-            userAnswers.push('No');
+            userAnswers.push('아니오');
         } else {
             allAnswered = false;
         }
     });
-    
+
     // 모든 statement에 답변했는지 확인
     if (!allAnswered) {
         alert('모든 항목에 답변해주세요!');
         return;
     }
-    
+
     // 정답 확인
     let correctCount = 0;
+    console.log('=== HOTSPOT 답변 비교 ===');
+    console.log('사용자 답변:', userAnswers);
+    console.log('정답:', question.answer);
     userAnswers.forEach((answer, index) => {
+        console.log(`문항 ${index + 1}: 사용자="${answer}", 정답="${question.answer[index]}", 일치=${answer === question.answer[index]}`);
         if (answer === question.answer[index]) {
             correctCount++;
         }
     });
-    
+    console.log('맞은 개수:', correctCount);
+
     const isCorrect = correctCount === question.statements.length;
-    
+
     // 답변 표시
     answeredQuestions.add(question.id);
     if (isCorrect) score++;
-    
+
     // UI 업데이트
     question.statements.forEach((statement, index) => {
         const row = document.querySelector(`.hotspot-row[data-index="${index}"]`);
@@ -303,42 +322,51 @@ function submitHotspotAnswer(question) {
         const noDiv = row.querySelector('.hotspot-checkbox:nth-child(3)');
         const yesInput = document.getElementById(`q${question.id}-s${index}-yes`);
         const noInput = document.getElementById(`q${question.id}-s${index}-no`);
-        
+
         yesInput.disabled = true;
         noInput.disabled = true;
-        
-        // 정답 표시
+
+        // 사용자가 선택한 답변과 정답 비교
         const correctAnswer = question.answer[index];
-        if (correctAnswer === 'Yes') {
-            yesDiv.classList.add('correct-answer');
-        } else {
-            noDiv.classList.add('correct-answer');
-        }
-        
-        // 오답 표시
-        if (userAnswers[index] !== correctAnswer) {
-            if (userAnswers[index] === 'Yes') {
-                yesDiv.classList.add('wrong-answer');
+        const userAnswer = userAnswers[index];
+
+        if (userAnswer === correctAnswer) {
+            // 맞은 경우 - 사용자가 선택한 것을 초록색으로
+            if (userAnswer === '예') {
+                yesDiv.classList.add('user-correct');
             } else {
-                noDiv.classList.add('wrong-answer');
+                noDiv.classList.add('user-correct');
+            }
+        } else {
+            // 틀린 경우 - 사용자가 선택한 것은 빨간색, 정답은 초록색으로
+            if (userAnswer === '예') {
+                yesDiv.classList.add('user-incorrect');
+            } else {
+                noDiv.classList.add('user-incorrect');
+            }
+
+            if (correctAnswer === '예') {
+                yesDiv.classList.add('correct-answer');
+            } else {
+                noDiv.classList.add('correct-answer');
             }
         }
     });
-    
+
     // 제출 버튼 제거
     const submitBtn = document.querySelector('.submit-hotspot-btn');
     if (submitBtn) submitBtn.remove();
-    
+
     // 피드백 표시
     elements.quizFeedback.classList.remove('hidden');
     elements.quizFeedback.classList.toggle('correct', isCorrect);
     elements.quizFeedback.classList.toggle('incorrect', !isCorrect);
-    
-    elements.feedbackContent.textContent = isCorrect ? 
-        `✓ 정답입니다! (${correctCount}/${question.statements.length})` : 
+
+    elements.feedbackContent.textContent = isCorrect ?
+        `✓ 정답입니다! (${correctCount}/${question.statements.length})` :
         `✗ ${correctCount}/${question.statements.length}개 정답`;
-    elements.quizExplanation.textContent = question.explanation || '설명이 제공되지 않았습니다.';
-    
+    elements.quizExplanation.innerHTML = (question.explanation || '설명이 제공되지 않았습니다.').replace(/\n/g, '<br>');
+
     updateUI();
 }
 
@@ -347,46 +375,46 @@ function submitHotspotAnswer(question) {
 // ========================================
 function displayMatchingQuestion(question) {
     const container = elements.optionsContainer;
-    
+
     // 매칭 테이블 생성
     const matchingContainer = document.createElement('div');
     matchingContainer.className = 'matching-container';
-    
+
     // 수식 문제인지 확인 (Formula Part가 포함된 경우)
-    const isFormulaQuestion = question.matchingItems.some(item => 
+    const isFormulaQuestion = question.matchingItems.some(item =>
         item.item.includes('Formula Part'));
-    
+
     if (isFormulaQuestion) {
         matchingContainer.classList.add('formula-layout');
     }
-    
+
     // 수식 기호 매핑
     const formulaOperators = ['', '÷', '×'];
-    
+
     question.matchingItems.forEach((item, index) => {
         const itemRow = document.createElement('div');
         itemRow.className = 'matching-row';
-        
+
         // 항목 이름
         const itemLabel = document.createElement('div');
         itemLabel.className = 'matching-item-label';
         itemLabel.textContent = item.item;
         itemRow.appendChild(itemLabel);
-        
+
         // 선택지 드롭다운
         const selectDiv = document.createElement('div');
         selectDiv.className = 'matching-select';
-        
+
         const select = document.createElement('select');
         select.className = 'matching-dropdown';
         select.id = `matching-${index}`;
-        
+
         // 기본 옵션
         const defaultOption = document.createElement('option');
         defaultOption.value = '';
         defaultOption.textContent = '-- 선택하세요 --';
         select.appendChild(defaultOption);
-        
+
         // 선택지 추가
         item.options.forEach(opt => {
             const option = document.createElement('option');
@@ -394,7 +422,7 @@ function displayMatchingQuestion(question) {
             option.textContent = opt;
             select.appendChild(option);
         });
-        
+
         // 이미 답변한 경우
         if (answeredQuestions.has(question.id)) {
             select.disabled = true;
@@ -403,12 +431,12 @@ function displayMatchingQuestion(question) {
                 selectDiv.classList.add('correct-answer');
             }
         }
-        
+
         selectDiv.appendChild(select);
         itemRow.appendChild(selectDiv);
-        
+
         matchingContainer.appendChild(itemRow);
-        
+
         // 수식 문제인 경우 연산자 추가 (DOM 요소로)
         if (isFormulaQuestion && index < question.matchingItems.length - 1) {
             const operator = document.createElement('div');
@@ -417,9 +445,9 @@ function displayMatchingQuestion(question) {
             matchingContainer.appendChild(operator);
         }
     });
-    
+
     container.appendChild(matchingContainer);
-    
+
     // 제출 버튼
     if (!answeredQuestions.has(question.id)) {
         const submitBtn = document.createElement('button');
@@ -433,7 +461,7 @@ function displayMatchingQuestion(question) {
 function submitMatchingAnswer(question) {
     const userAnswers = [];
     let allAnswered = true;
-    
+
     // 각 항목의 선택 수집
     question.matchingItems.forEach((item, index) => {
         const select = document.getElementById(`matching-${index}`);
@@ -443,13 +471,13 @@ function submitMatchingAnswer(question) {
             allAnswered = false;
         }
     });
-    
+
     // 모든 항목에 답변했는지 확인
     if (!allAnswered) {
         alert('모든 항목을 선택해주세요!');
         return;
     }
-    
+
     // 정답 확인
     let correctCount = 0;
     userAnswers.forEach((answer, index) => {
@@ -457,20 +485,20 @@ function submitMatchingAnswer(question) {
             correctCount++;
         }
     });
-    
+
     const isCorrect = correctCount === question.matchingItems.length;
-    
+
     // 답변 표시
     answeredQuestions.add(question.id);
     if (isCorrect) score++;
-    
+
     // UI 업데이트
     question.matchingItems.forEach((item, index) => {
         const select = document.getElementById(`matching-${index}`);
         const selectDiv = select.parentElement;
-        
+
         select.disabled = true;
-        
+
         // 정답 표시
         if (userAnswers[index] === item.answer) {
             selectDiv.classList.add('correct-answer');
@@ -483,21 +511,21 @@ function submitMatchingAnswer(question) {
             selectDiv.appendChild(correctLabel);
         }
     });
-    
+
     // 제출 버튼 제거
     const submitBtn = document.querySelector('.submit-matching-btn');
     if (submitBtn) submitBtn.remove();
-    
+
     // 피드백 표시
     elements.quizFeedback.classList.remove('hidden');
     elements.quizFeedback.classList.toggle('correct', isCorrect);
     elements.quizFeedback.classList.toggle('incorrect', !isCorrect);
-    
-    elements.feedbackContent.textContent = isCorrect ? 
-        `✓ 정답입니다! (${correctCount}/${question.matchingItems.length})` : 
+
+    elements.feedbackContent.textContent = isCorrect ?
+        `✓ 정답입니다! (${correctCount}/${question.matchingItems.length})` :
         `✗ ${correctCount}/${question.matchingItems.length}개 정답`;
-    elements.quizExplanation.textContent = question.explanation || '설명이 제공되지 않았습니다.';
-    
+    elements.quizExplanation.innerHTML = (question.explanation || '설명이 제공되지 않았습니다.').replace(/\n/g, '<br>');
+
     updateUI();
 }
 
@@ -506,25 +534,25 @@ function submitMatchingAnswer(question) {
 // ========================================
 function displayDropdownQuestion(question) {
     const container = elements.optionsContainer;
-    
+
     // 드롭다운 컨테이너 생성
     const dropdownContainer = document.createElement('div');
     dropdownContainer.className = 'dropdown-container';
-    
+
     question.dropdowns.forEach((dropdown, index) => {
         const dropdownDiv = document.createElement('div');
         dropdownDiv.className = 'dropdown-item';
-        
+
         const select = document.createElement('select');
         select.className = 'dropdown-select';
         select.id = `dropdown-${dropdown.id}`;
-        
+
         // 기본 옵션
         const defaultOption = document.createElement('option');
         defaultOption.value = '';
         defaultOption.textContent = '-- 선택하세요 --';
         select.appendChild(defaultOption);
-        
+
         // 선택지 추가
         dropdown.options.forEach(opt => {
             const option = document.createElement('option');
@@ -532,24 +560,24 @@ function displayDropdownQuestion(question) {
             option.textContent = `${opt.letter}. ${opt.text}`;
             select.appendChild(option);
         });
-        
+
         // 이미 답변한 경우
         if (answeredQuestions.has(question.id)) {
             select.disabled = true;
             const correctAnswer = question.answer[dropdown.id];
             select.value = correctAnswer;
-            
+
             if (select.value === correctAnswer) {
                 dropdownDiv.classList.add('correct-answer');
             }
         }
-        
+
         dropdownDiv.appendChild(select);
         dropdownContainer.appendChild(dropdownDiv);
     });
-    
+
     container.appendChild(dropdownContainer);
-    
+
     // 제출 버튼
     if (!answeredQuestions.has(question.id)) {
         const submitBtn = document.createElement('button');
@@ -563,7 +591,7 @@ function displayDropdownQuestion(question) {
 function submitDropdownAnswer(question) {
     const userAnswers = {};
     let allAnswered = true;
-    
+
     // 각 드롭다운의 선택 수집
     question.dropdowns.forEach((dropdown) => {
         const select = document.getElementById(`dropdown-${dropdown.id}`);
@@ -573,36 +601,36 @@ function submitDropdownAnswer(question) {
             allAnswered = false;
         }
     });
-    
+
     // 모든 드롭다운에 답변했는지 확인
     if (!allAnswered) {
         alert('모든 항목을 선택해주세요!');
         return;
     }
-    
+
     // 정답 확인
     let correctCount = 0;
     let totalCount = question.dropdowns.length;
-    
+
     Object.keys(userAnswers).forEach(dropdownId => {
         if (userAnswers[dropdownId] === question.answer[dropdownId]) {
             correctCount++;
         }
     });
-    
+
     const isCorrect = correctCount === totalCount;
-    
+
     // 답변 표시
     answeredQuestions.add(question.id);
     if (isCorrect) score++;
-    
+
     // UI 업데이트
     question.dropdowns.forEach((dropdown) => {
         const select = document.getElementById(`dropdown-${dropdown.id}`);
         const dropdownDiv = select.parentElement;
-        
+
         select.disabled = true;
-        
+
         // 정답 표시
         const correctAnswer = question.answer[dropdown.id];
         if (userAnswers[dropdown.id] === correctAnswer) {
@@ -617,21 +645,21 @@ function submitDropdownAnswer(question) {
             dropdownDiv.appendChild(correctLabel);
         }
     });
-    
+
     // 제출 버튼 제거
     const submitBtn = document.querySelector('.submit-dropdown-btn');
     if (submitBtn) submitBtn.remove();
-    
+
     // 피드백 표시
     elements.quizFeedback.classList.remove('hidden');
     elements.quizFeedback.classList.toggle('correct', isCorrect);
     elements.quizFeedback.classList.toggle('incorrect', !isCorrect);
-    
-    elements.feedbackContent.textContent = isCorrect ? 
-        `✓ 정답입니다!` : 
+
+    elements.feedbackContent.textContent = isCorrect ?
+        `✓ 정답입니다!` :
         `✗ ${correctCount}/${totalCount}개 정답`;
-    elements.quizExplanation.textContent = question.explanation || '설명이 제공되지 않았습니다.';
-    
+    elements.quizExplanation.innerHTML = (question.explanation || '설명이 제공되지 않았습니다.').replace(/\n/g, '<br>');
+
     updateUI();
 }
 
@@ -646,36 +674,39 @@ function toggleSelection(button) {
 function submitMultipleChoice(question) {
     // Get all selected options
     const selectedButtons = elements.optionsContainer.querySelectorAll('.option-btn.selected');
-    
+
     if (selectedButtons.length === 0) {
         alert('답을 선택해주세요!');
         return;
     }
-    
+
     const selectedLetters = Array.from(selectedButtons).map(btn => btn.dataset.letter);
-    
+
     // Parse correct answers (단일 또는 복수)
     let correctAnswers = [];
-    if (question.answer.includes('\n')) {
+    if (Array.isArray(question.answer)) {
+        // 배열이면 그대로 사용
+        correctAnswers = question.answer;
+    } else if (question.answer.includes('\n')) {
         correctAnswers = question.answer.split('\n').map(a => a.trim()).filter(a => a.length === 1);
     } else if (question.answer.includes(',')) {
         correctAnswers = question.answer.split(',').map(a => a.trim()).filter(a => a.length === 1);
     } else {
         correctAnswers = [question.answer.trim()];
     }
-    
+
     // Check if answer is correct
     const isCorrect = selectedLetters.length === correctAnswers.length &&
-                      selectedLetters.every(letter => correctAnswers.includes(letter));
-    
+        selectedLetters.every(letter => correctAnswers.includes(letter));
+
     // Mark as answered
     answeredQuestions.add(question.id);
-    
+
     // Update score
     if (isCorrect) {
         score++;
     }
-    
+
     // Disable all buttons and show correct answers
     const allButtons = elements.optionsContainer.querySelectorAll('.option-btn');
     allButtons.forEach(btn => {
@@ -683,31 +714,31 @@ function submitMultipleChoice(question) {
             btn.remove();
             return;
         }
-        
+
         btn.disabled = true;
         btn.classList.remove('selected');
-        
+
         const letter = btn.dataset.letter;
         if (correctAnswers.includes(letter)) {
             btn.classList.add('correct');
         }
-        
+
         if (selectedLetters.includes(letter) && !correctAnswers.includes(letter)) {
             btn.classList.add('incorrect');
         }
     });
-    
+
     // Show feedback
     elements.quizFeedback.classList.remove('hidden');
     elements.quizFeedback.classList.toggle('correct', isCorrect);
     elements.quizFeedback.classList.toggle('incorrect', !isCorrect);
-    
+
     const correctCount = selectedLetters.filter(l => correctAnswers.includes(l)).length;
-    elements.feedbackContent.textContent = isCorrect ? 
-        '✓ 정답입니다!' : 
+    elements.feedbackContent.textContent = isCorrect ?
+        '✓ 정답입니다!' :
         `✗ ${correctCount}/${correctAnswers.length}개 정답`;
-    elements.quizExplanation.textContent = question.explanation || '설명이 제공되지 않았습니다.';
-    
+    elements.quizExplanation.innerHTML = (question.explanation || '설명이 제공되지 않았습니다.').replace(/\n/g, '<br>');
+
     updateUI();
 }
 
@@ -743,7 +774,7 @@ function selectAnswer(selectedLetter, question) {
     elements.quizFeedback.classList.toggle('incorrect', !isCorrect);
 
     elements.feedbackContent.textContent = isCorrect ? '✓ 정답입니다!' : '✗ 오답입니다.';
-    elements.quizExplanation.textContent = question.explanation || '설명이 제공되지 않았습니다.';
+    elements.quizExplanation.innerHTML = (question.explanation || '설명이 제공되지 않았습니다.').replace(/\n/g, '<br>');
 
     // Update UI
     updateUI();
@@ -833,20 +864,139 @@ function toggleSearch() {
     }
 }
 
+function searchNextQuestion() {
+    const query = elements.searchInput.value.toLowerCase().trim();
+
+    if (!query) {
+        alert('검색어를 입력해주세요.');
+        return;
+    }
+
+    // 현재 위치 다음부터 검색
+    let found = false;
+    let searchStartIndex = currentQuestionIndex + 1;
+
+    // 현재 위치 다음부터 끝까지 검색
+    for (let i = searchStartIndex; i < shuffledQuestions.length; i++) {
+        if (shuffledQuestions[i].question.toLowerCase().includes(query)) {
+            currentQuestionIndex = i;
+            found = true;
+            break;
+        }
+    }
+
+    // 못 찾았으면 처음부터 현재 위치까지 검색
+    if (!found) {
+        for (let i = 0; i < searchStartIndex; i++) {
+            if (shuffledQuestions[i].question.toLowerCase().includes(query)) {
+                currentQuestionIndex = i;
+                found = true;
+                break;
+            }
+        }
+    }
+
+    if (found) {
+        displayQuestion();
+        updateUI();
+        // 검색어는 유지 (다음 검색을 위해)
+    } else {
+        alert(`"${query}"를 포함하는 문제를 더 이상 찾을 수 없습니다.`);
+    }
+}
+
 function handleSearch(e) {
     const query = e.target.value.toLowerCase().trim();
 
     if (!query) {
-        shuffledQuestions = [...quizData.questions];
-    } else {
-        shuffledQuestions = quizData.questions.filter(q =>
-            q.question.toLowerCase().includes(query) ||
-            q.options.some(opt => opt.text.toLowerCase().includes(query))
-        );
+        return;
     }
 
-    currentQuestionIndex = 0;
+    // 현재 위치 다음부터 검색
+    let found = false;
+    let searchStartIndex = currentQuestionIndex + 1;
+
+    // 현재 위치 다음부터 끝까지 검색
+    for (let i = searchStartIndex; i < shuffledQuestions.length; i++) {
+        if (shuffledQuestions[i].question.toLowerCase().includes(query)) {
+            currentQuestionIndex = i;
+            found = true;
+            break;
+        }
+    }
+
+    // 못 찾았으면 처음부터 현재 위치까지 검색
+    if (!found) {
+        for (let i = 0; i < searchStartIndex; i++) {
+            if (shuffledQuestions[i].question.toLowerCase().includes(query)) {
+                currentQuestionIndex = i;
+                found = true;
+                break;
+            }
+        }
+    }
+
+    if (found) {
+        displayQuestion();
+        updateUI();
+        elements.searchInput.value = ''; // 검색 후 입력창 비우기
+    } else {
+        alert(`"${query}"를 포함하는 문제를 찾을 수 없습니다.`);
+    }
+}
+
+// ========================================
+// QUESTION JUMP BUTTONS
+// ========================================
+function createQuestionJumpButtons() {
+    if (!elements.questionJumpButtons || !quizData) return;
+
+    const totalQuestions = quizData.questions.length;
+    const buttonInterval = 50;
+
+    elements.questionJumpButtons.innerHTML = '';
+
+    // 50문제 단위로 버튼 생성
+    for (let i = 0; i < totalQuestions; i += buttonInterval) {
+        const startNum = i + 1;
+
+        const button = document.createElement('button');
+        button.className = 'jump-btn';
+        button.textContent = `Q${startNum}`;
+        button.dataset.startIndex = i;
+
+        button.addEventListener('click', () => {
+            jumpToQuestion(i);
+        });
+
+        elements.questionJumpButtons.appendChild(button);
+    }
+}
+
+function jumpToQuestion(index) {
+    currentQuestionIndex = index;
     displayQuestion();
+    updateUI();
+    updateJumpButtonsState();
+}
+
+function updateJumpButtonsState() {
+    if (!elements.questionJumpButtons) return;
+
+    const buttons = elements.questionJumpButtons.querySelectorAll('.jump-btn');
+    const currentQuestionId = shuffledQuestions[currentQuestionIndex]?.id;
+
+    buttons.forEach(button => {
+        const startIndex = parseInt(button.dataset.startIndex);
+        const endIndex = startIndex + 50;
+
+        // 현재 문제 ID가 이 버튼의 범위에 있는지 확인
+        if (currentQuestionId >= startIndex + 1 && currentQuestionId <= endIndex) {
+            button.classList.add('active');
+        } else {
+            button.classList.remove('active');
+        }
+    });
 }
 
 // ========================================
@@ -877,6 +1027,210 @@ function updateUI() {
     // Update bookmark icon
     const isBookmarked = bookmarkedQuestions.has(question.id);
     elements.bookmarkIcon.textContent = isBookmarked ? '❤️' : '🤍';
+
+    // Update jump buttons state
+    updateJumpButtonsState();
+}
+
+// ========================================
+// DRAG AND DROP QUESTION DISPLAY
+// ========================================
+function displayDragDropQuestion(question) {
+    const container = elements.optionsContainer;
+
+    // Main container
+    const dragDropContainer = document.createElement('div');
+    dragDropContainer.className = 'drag-drop-container';
+
+    // Left panel - Drag Options
+    const dragPanel = document.createElement('div');
+    dragPanel.className = 'drag-options-panel';
+    dragPanel.innerHTML = '<div class="drag-options-title">Answer Options</div>';
+
+    question.dragOptions.forEach((option, index) => {
+        const dragOption = document.createElement('div');
+        dragOption.className = 'drag-option';
+        dragOption.textContent = option;
+        dragOption.draggable = true;
+        dragOption.dataset.option = option;
+        dragOption.dataset.index = index;
+
+        // Drag events
+        dragOption.addEventListener('dragstart', handleDragStart);
+        dragOption.addEventListener('dragend', handleDragEnd);
+
+        dragPanel.appendChild(dragOption);
+    });
+
+    // Right panel - Drop Zones
+    const dropPanel = document.createElement('div');
+    dropPanel.className = 'drop-zones-panel';
+    dropPanel.innerHTML = '<div class="drop-zones-title">Answer Area</div>';
+
+    question.dropZones.forEach((zone, index) => {
+        const zoneRow = document.createElement('div');
+        zoneRow.className = 'drop-zone-row';
+
+        const description = document.createElement('div');
+        description.className = 'drop-zone-description';
+        description.textContent = zone.description;
+
+        const dropZone = document.createElement('div');
+        dropZone.className = 'drop-zone';
+        dropZone.dataset.index = index;
+        dropZone.dataset.correctAnswer = zone.correctAnswer;
+
+        // Drop events
+        dropZone.addEventListener('dragover', handleDragOver);
+        dropZone.addEventListener('dragleave', handleDragLeave);
+        dropZone.addEventListener('drop', handleDrop);
+
+        zoneRow.appendChild(description);
+        zoneRow.appendChild(dropZone);
+        dropPanel.appendChild(zoneRow);
+    });
+
+    dragDropContainer.appendChild(dragPanel);
+    dragDropContainer.appendChild(dropPanel);
+    container.appendChild(dragDropContainer);
+
+    // Submit button
+    if (!answeredQuestions.has(question.id)) {
+        const submitBtn = document.createElement('button');
+        submitBtn.className = 'option-btn submit-btn submit-drag-drop-btn';
+        submitBtn.textContent = '제출';
+        submitBtn.addEventListener('click', () => submitDragDropAnswer(question));
+        container.appendChild(submitBtn);
+    }
+}
+
+let draggedElement = null;
+
+function handleDragStart(e) {
+    draggedElement = e.target;
+    e.target.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', e.target.innerHTML);
+}
+
+function handleDragEnd(e) {
+    e.target.classList.remove('dragging');
+}
+
+function handleDragOver(e) {
+    if (e.preventDefault) {
+        e.preventDefault();
+    }
+    e.dataTransfer.dropEffect = 'move';
+    e.target.classList.add('drag-over');
+    return false;
+}
+
+function handleDragLeave(e) {
+    e.target.classList.remove('drag-over');
+}
+
+function handleDrop(e) {
+    if (e.stopPropagation) {
+        e.stopPropagation();
+    }
+    e.preventDefault();
+
+    const dropZone = e.target.closest('.drop-zone');
+    if (!dropZone || !draggedElement) return;
+
+    dropZone.classList.remove('drag-over');
+
+    // 이미 채워진 경우 기존 아이템 제거
+    const existingItem = dropZone.querySelector('.dropped-item');
+    if (existingItem) {
+        existingItem.remove();
+    }
+
+    // 새 아이템 추가 (원본은 그대로 두고 복사본만 추가)
+    const droppedItem = document.createElement('div');
+    droppedItem.className = 'dropped-item';
+    droppedItem.textContent = draggedElement.textContent;
+    droppedItem.dataset.option = draggedElement.dataset.option;
+
+    // 클릭하면 제거
+    droppedItem.addEventListener('click', () => {
+        droppedItem.remove();
+        dropZone.classList.remove('filled');
+    });
+
+    dropZone.appendChild(droppedItem);
+    dropZone.classList.add('filled');
+    // draggedElement.classList.add('used'); // 중복 사용을 위해 주석 처리
+
+    return false;
+}
+
+function submitDragDropAnswer(question) {
+    const dropZones = document.querySelectorAll('.drop-zone');
+    let correct = 0;
+    let total = dropZones.length;
+
+    // 모든 드롭존이 채워졌는지 확인
+    let allFilled = true;
+    dropZones.forEach(zone => {
+        const droppedItem = zone.querySelector('.dropped-item');
+        if (!droppedItem) {
+            allFilled = false;
+        }
+    });
+
+    if (!allFilled) {
+        alert('모든 답변 영역을 채워주세요.');
+        return;
+    }
+
+    // 정답 확인
+    dropZones.forEach(zone => {
+        const droppedItem = zone.querySelector('.dropped-item');
+        const userAnswer = droppedItem ? droppedItem.dataset.option : '';
+        const correctAnswer = zone.dataset.correctAnswer;
+
+        if (userAnswer === correctAnswer) {
+            zone.classList.add('correct');
+            correct++;
+        } else {
+            zone.classList.add('incorrect');
+        }
+
+        // 드래그 비활성화
+        const dragOptions = document.querySelectorAll('.drag-option');
+        dragOptions.forEach(opt => {
+            opt.draggable = false;
+            opt.style.cursor = 'not-allowed';
+        });
+
+        // 클릭 제거 비활성화
+        if (droppedItem) {
+            droppedItem.style.cursor = 'default';
+            droppedItem.onclick = null;
+        }
+    });
+
+    // 점수 업데이트
+    answeredQuestions.add(question.id);
+    if (correct === total) {
+        score++;
+    }
+
+    // 제출 버튼 제거
+    const submitBtn = document.querySelector('.submit-drag-drop-btn');
+    if (submitBtn) {
+        submitBtn.remove();
+    }
+
+    // 피드백 표시
+    elements.feedbackContent.textContent = `${correct}/${total}개 정답`;
+    elements.quizExplanation.innerHTML = (question.explanation || '설명이 제공되지 않았습니다.').replace(/\n/g, '<br>');
+    elements.quizFeedback.classList.remove('hidden');
+    elements.quizFeedback.className = 'quiz-feedback ' + (correct === total ? 'correct' : 'incorrect');
+
+    updateUI();
 }
 
 // ========================================
@@ -885,14 +1239,14 @@ function updateUI() {
 function setupImageModal() {
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
-    
+
     // Close modal on click
     if (modal) {
         modal.addEventListener('click', () => {
             modal.classList.remove('active');
         });
     }
-    
+
     // Close modal on Escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
@@ -904,7 +1258,7 @@ function setupImageModal() {
 function openImageModal(imageSrc) {
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
-    
+
     if (modal && modalImage) {
         modalImage.src = imageSrc;
         modal.classList.add('active');

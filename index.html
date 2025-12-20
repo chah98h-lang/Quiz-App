@@ -44,6 +44,9 @@
             <div class="progress-bar">
                 <div class="progress-fill" id="progressBar"></div>
             </div>
+            <div class="question-jump-buttons" id="questionJumpButtons">
+                <!-- Buttons will be generated dynamically -->
+            </div>
         </header>
 
         <!-- Controls -->
@@ -61,7 +64,8 @@
 
         <!-- Search Box -->
         <div class="search-box" id="searchBox">
-            <input type="text" id="searchInput" placeholder="문제 검색...">
+            <input type="text" id="searchInput" placeholder="검색어 입력 후 Enter (문제 텍스트만 검색)">
+            <button id="searchNextBtn" class="search-next-btn">이동</button>
             <button id="searchCloseBtn">✕</button>
         </div>
 
