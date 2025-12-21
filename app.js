@@ -7,6 +7,8 @@ let score = 0;
 let answeredQuestions = new Set();
 let bookmarkedQuestions = new Set();
 let shuffledQuestions = [];
+let touchStartX = 0;
+let touchEndX = 0;
 
 // ========================================
 // DOM ELEMENTS
@@ -99,6 +101,37 @@ function setupEventListeners() {
 
     // Keyboard shortcuts
     document.addEventListener('keydown', handleKeyboard);
+
+    // Swipe gestures for mobile
+    document.addEventListener('touchstart', handleTouchStart, { passive: false });
+    document.addEventListener('touchend', handleTouchEnd, { passive: false });
+}
+
+function handleTouchStart(e) {
+    touchStartX = e.changedTouches[0].clientX;
+}
+
+function handleTouchEnd(e) {
+    touchEndX = e.changedTouches[0].clientX;
+    handleSwipeGesture(e);
+}
+
+function handleSwipeGesture(e) {
+    const swipeThreshold = 50; // Minimum distance for a swipe
+    const diff = touchEndX - touchStartX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+        // Prevent default browser behavior (like back/forward navigation)
+        if (e.cancelable) e.preventDefault();
+
+        if (diff < 0) {
+            // Swipe Left -> Next Question
+            nextQuestion();
+        } else {
+            // Swipe Right -> Previous Question
+            previousQuestion();
+        }
+    }
 }
 
 // ========================================
@@ -169,7 +202,7 @@ function displayQuestion() {
                     button.classList.add('correct');
                 }
             } else {
-                button.addEventListener('click', () => toggleSelection(button));
+                button.addEventListener('click', () => toggleSelection(button, question));
             }
 
             elements.optionsContainer.appendChild(button);
@@ -666,9 +699,29 @@ function submitDropdownAnswer(question) {
 // ========================================
 // MULTIPLE CHOICE SELECTION (with submit button)
 // ========================================
-function toggleSelection(button) {
-    // Toggle selected state
-    button.classList.toggle('selected');
+function toggleSelection(button, question) {
+    // Determine if it's a multi-choice question
+    // 1. Array-type answer
+    // 2. String answer with newlines or commas
+    const isMultiChoice = Array.isArray(question.answer) ||
+        (typeof question.answer === 'string' && (question.answer.includes('\n') || question.answer.includes(',')));
+
+    if (!isMultiChoice) {
+        // Single-choice logic
+        const isAlreadySelected = button.classList.contains('selected');
+
+        // Deselect all others
+        const allButtons = button.parentElement.querySelectorAll('.option-btn');
+        allButtons.forEach(btn => btn.classList.remove('selected'));
+
+        // If it wasn't already selected, select it now (toggle off if it was selected)
+        if (!isAlreadySelected) {
+            button.classList.add('selected');
+        }
+    } else {
+        // Multi-choice logic: Just toggle the clicked button
+        button.classList.toggle('selected');
+    }
 }
 
 function submitMultipleChoice(question) {

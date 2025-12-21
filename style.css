@@ -141,6 +141,7 @@ body {
     /* Reduced horizontal padding for PC alignment */
     position: relative;
     z-index: 1;
+    touch-action: pan-y;
 }
 
 /* ========================================
@@ -551,6 +552,7 @@ body {
     backdrop-filter: blur(20px);
     box-shadow: var(--shadow-lg);
     min-height: 400px;
+    touch-action: pan-y;
 }
 
 .quiz-card.hidden {
