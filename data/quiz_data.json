@@ -2162,7 +2162,7 @@
           "text": "Azure 데이터 센터 장애"
         }
       ],
-      "answer": "DA",
+      "answer": "D",
       "explanation": "가용성 영역은 VM에서 애플리케이션과 데이터의 가용성을 유지하기 위해 필요한 제어 수준을 확장합니다. 가용성 영역은 Azure 지역 내의 물리적으로 분리된 영역입니다. 지원되는 Azure 지역당 가용성 영역이 3개 있습니다.\n각 가용성 영역에는 고유한 전원, 네트워크 및 냉각 장치가 있습니다. 영역에서 복제된 VM을 사용하도록 솔루션을 설계하면 데이터 센터 손실로부터\n앱과 데이터를 보호할 수 있습니다. 한 영역이 손상되면 복제된 앱과 데이터를 다른 영역에서 즉시 사용할 수 있습니다.",
       "questionType": "MULTIPLE_CHOICE"
     },
@@ -3585,11 +3585,11 @@
         },
         {
           "letter": "C",
-          "text": "동일한 Azure 지역에"
+          "text": "동일한 리소스 그룹"
         },
         {
           "letter": "D",
-          "text": "동일한 Azure Resource Manager 템플릿을 사용하여"
+          "text": "동일한 가용성 존"
         }
       ],
       "answer": "C",
@@ -4042,11 +4042,11 @@
           "correctAnswer": "Azure SQL Synapse Analytics"
         },
         {
-          "description": "페타바이트 규모의 데이터에 대해 대규모 병렬 데이터 변환 및 처리 프로그램을 실행할 수 있습니다",
+          "description": "페타바이트 규모의 데이터에 대해 대규모 병렬 데이터 변환 및 처리 프로그램을 실행할 수 있습니다.",
           "correctAnswer": "Azure Data Lake Analytics"
         },
         {
-          "description": "An open-source framework for the distributed processing and analysis of big data sets in clusters.",
+          "description": "클러스터 환경에서 빅데이터 세트를 분산 처리하고 분석하기 위한 오픈소스 프레임워크입니다.",
           "correctAnswer": "Azure HDInsight"
         }
       ],
@@ -4071,7 +4071,7 @@
             "마켓플레이스",
             "어드바이저"
           ],
-          "answer": "모니터."
+          "answer": "모니터"
         },
         {
           "item": "사용 가능한 가상 머신 이미지를 찾아본다",
@@ -5258,7 +5258,7 @@
           "text": "Azure Service Health"
         }
       ],
-      "answer": "A",
+      "answer": "C",
       "explanation": " Access Control이 아닌 Azure Activity Log를 사용하여 지난 14일 동안 특정 가상 머신을 끈 사용자를 확인합니다.\n활동 로그는 90일 동안 보관됩니다. 시작 날짜가 과거 90일을 넘지 않는 한 모든 날짜 범위를 쿼리할 수 있습니다.\n이 질문에서는 지난 14일 동안 가상 머신에서 종료 작업을 표시하는 필터를 만듭니다.",
       "questionType": "MULTIPLE_CHOICE"
     },
@@ -5686,7 +5686,7 @@
           "text": "역할 기반 액세스 제어(RBAC) 역할 할당의 그룹"
         }
       ],
-      "answer": "B",
+      "answer": "A",
       "explanation": "상자: 정책 정의 모음\nAzure Policy 이니셔티브는 특정 목표나 목적을 향해 그룹화된 Azure Policy 정의 또는 규칙 모음입니다. Azure 이니셔티브는 논리적으로 정책 집합을 단일 항목으로 그룹화하여 정책 관리를 간소화합니다.",
       "questionType": "MULTIPLE_CHOICE"
     },
@@ -5712,7 +5712,7 @@
           "text": "클라우드용 Microsoft Defender"
         }
       ],
-      "answer": "D\nT",
+      "answer": "D",
       "explanation": "https://docs.microsoft.com/en-us/azure/defender-for-cloud/secure-score-security-controls",
       "questionType": "MULTIPLE_CHOICE"
     },
@@ -5966,7 +5966,7 @@
           "text": "암호와 인증서를 저장한다"
         }
       ],
-      "answer": "B",
+      "answer": "A",
       "explanation": "상자: 위협에 자동으로 대응 -\n플레이북은 Microsoft Sentinel에서 경고 또는 인시던트에 대응하여 실행할 수 있는 프로시저 모음입니다. 플레이북은 대응을 자동화하고 조율하는데 도움이 될 수 있으며, 분석 규칙 또는 자동화 규칙에 각각 연결하여 특정 경고 또는 인시던트가 생성될 때 자동으로 실행되도록 설정할 수 있습니다.\n참고: 자동화 규칙은 Microsoft Sentinel에서 인시던트를 분류하는 데 도움이 됩니다. 이를 사용하여 인시던트를 적절한 담당자에게 자동으로 할당하고, 시끄러운 인시던트 또는 알려진 거짓 긍정을 종료하고, 심각도를 변경하고, 태그를 추가할 수 있습니다. 또한 인시던트에 대응하여 플레이북을 실행할 수 있는 메커니즘이기도 합니다.",
       "questionType": "HOTSPOT"
     },
