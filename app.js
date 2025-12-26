@@ -5,6 +5,7 @@ let quizData = null;
 let currentQuestionIndex = 0;
 let score = 0;
 let answeredQuestions = new Set();
+let firstAttempts = new Map(); // Track first attempt results: { questionId: { isCorrect: boolean, userAnswer: any } }
 let bookmarkedQuestions = new Set();
 let shuffledQuestions = [];
 let touchStartX = 0;
@@ -148,8 +149,17 @@ function displayQuestion() {
     // Clear previous options
     elements.optionsContainer.innerHTML = '';
 
-    // Hide feedback
-    elements.quizFeedback.classList.add('hidden');
+    // Show feedback if previously answered
+    const firstAttempt = firstAttempts.get(question.id);
+    if (firstAttempt) {
+        elements.quizFeedback.classList.remove('hidden');
+        elements.quizFeedback.classList.toggle('correct', firstAttempt.isCorrect);
+        elements.quizFeedback.classList.toggle('incorrect', !firstAttempt.isCorrect);
+        elements.feedbackContent.textContent = firstAttempt.isCorrect ? '✓ 처음 시도: 정답' : '✗ 처음 시도: 오답';
+        elements.quizExplanation.innerHTML = (question.explanation || '설명이 제공되지 않았습니다.').replace(/\n/g, '<br>');
+    } else {
+        elements.quizFeedback.classList.add('hidden');
+    }
 
     // Display question image if exists
     const existingImage = elements.quizCard.querySelector('.question-image');
@@ -191,9 +201,9 @@ function displayQuestion() {
             button.textContent = `${option.letter}. ${option.text}`;
             button.dataset.letter = option.letter;
 
-            // Check if already answered
-            if (answeredQuestions.has(question.id)) {
-                button.disabled = true;
+            // Check if already answered - show correct answers but allow re-answering
+            const firstAttempt = firstAttempts.get(question.id);
+            if (firstAttempt) {
                 // 복수 정답 확인
                 const correctAnswers = question.answer.includes('\n') || question.answer.includes(',') ?
                     question.answer.split(/[\n,]/).map(a => a.trim()) : [question.answer];
@@ -201,21 +211,26 @@ function displayQuestion() {
                 if (correctAnswers.includes(option.letter)) {
                     button.classList.add('correct');
                 }
-            } else {
-                button.addEventListener('click', () => toggleSelection(button, question));
+
+                // Highlight user's previous answer
+                const userAnswers = Array.isArray(firstAttempt.userAnswer) ? firstAttempt.userAnswer : [firstAttempt.userAnswer];
+                if (userAnswers.includes(option.letter) && !correctAnswers.includes(option.letter)) {
+                    button.classList.add('incorrect');
+                }
             }
+
+            // Always allow clicking to select
+            button.addEventListener('click', () => toggleSelection(button, question));
 
             elements.optionsContainer.appendChild(button);
         });
 
-        // 제출 버튼 추가 (아직 답변하지 않은 경우)
-        if (!answeredQuestions.has(question.id)) {
-            const submitBtn = document.createElement('button');
-            submitBtn.className = 'option-btn submit-btn';
-            submitBtn.textContent = '제출';
-            submitBtn.addEventListener('click', () => submitMultipleChoice(question));
-            elements.optionsContainer.appendChild(submitBtn);
-        }
+        // 제출 버튼 추가 (항상 표시)
+        const submitBtn = document.createElement('button');
+        submitBtn.className = 'option-btn submit-btn';
+        submitBtn.textContent = firstAttempts.has(question.id) ? '다시 제출' : '제출';
+        submitBtn.addEventListener('click', () => submitMultipleChoice(question));
+        elements.optionsContainer.appendChild(submitBtn);
     }
 
     updateUI();
@@ -275,18 +290,26 @@ function displayHotspotQuestion(question) {
         noDiv.appendChild(noInput);
         row.appendChild(noDiv);
 
-        // 이미 답변한 경우 표시
-        if (answeredQuestions.has(question.id)) {
-            yesInput.disabled = true;
-            noInput.disabled = true;
-
+        // 이미 답변한 경우 표시 (정답 표시하지만 재선택 가능)
+        const firstAttempt = firstAttempts.get(question.id);
+        if (firstAttempt) {
             const correctAnswer = question.answer[index];
             if (correctAnswer === '예') {
-                yesInput.checked = true;
                 yesDiv.classList.add('correct-answer');
             } else {
-                noInput.checked = true;
                 noDiv.classList.add('correct-answer');
+            }
+
+            // Show user's previous answer if incorrect
+            if (firstAttempt.userAnswer && firstAttempt.userAnswer[index]) {
+                const userAnswer = firstAttempt.userAnswer[index];
+                if (userAnswer !== correctAnswer) {
+                    if (userAnswer === '예') {
+                        yesDiv.classList.add('user-incorrect');
+                    } else {
+                        noDiv.classList.add('user-incorrect');
+                    }
+                }
             }
         }
 
@@ -295,14 +318,12 @@ function displayHotspotQuestion(question) {
 
     container.appendChild(table);
 
-    // 제출 버튼 (아직 답변하지 않은 경우)
-    if (!answeredQuestions.has(question.id)) {
-        const submitBtn = document.createElement('button');
-        submitBtn.className = 'option-btn submit-hotspot-btn';
-        submitBtn.textContent = '제출';
-        submitBtn.addEventListener('click', () => submitHotspotAnswer(question));
-        container.appendChild(submitBtn);
-    }
+    // 제출 버튼 (항상 표시)
+    const submitBtn = document.createElement('button');
+    submitBtn.className = 'option-btn submit-hotspot-btn';
+    submitBtn.textContent = firstAttempts.has(question.id) ? '다시 제출' : '제출';
+    submitBtn.addEventListener('click', () => submitHotspotAnswer(question));
+    container.appendChild(submitBtn);
 }
 
 function submitHotspotAnswer(question) {
@@ -344,20 +365,29 @@ function submitHotspotAnswer(question) {
 
     const isCorrect = correctCount === question.statements.length;
 
+    // Track first attempt only
+    if (!firstAttempts.has(question.id)) {
+        firstAttempts.set(question.id, {
+            isCorrect: isCorrect,
+            userAnswer: userAnswers
+        });
+
+        // Update score only on first attempt
+        if (isCorrect) score++;
+    }
+
     // 답변 표시
     answeredQuestions.add(question.id);
-    if (isCorrect) score++;
 
-    // UI 업데이트
+    // UI 업데이트 - 정답 표시하지만 비활성화하지 않음
     question.statements.forEach((statement, index) => {
         const row = document.querySelector(`.hotspot-row[data-index="${index}"]`);
         const yesDiv = row.querySelector('.hotspot-checkbox:nth-child(2)');
         const noDiv = row.querySelector('.hotspot-checkbox:nth-child(3)');
-        const yesInput = document.getElementById(`q${question.id}-s${index}-yes`);
-        const noInput = document.getElementById(`q${question.id}-s${index}-no`);
 
-        yesInput.disabled = true;
-        noInput.disabled = true;
+        // Remove previous styling
+        yesDiv.classList.remove('user-correct', 'user-incorrect', 'correct-answer');
+        noDiv.classList.remove('user-correct', 'user-incorrect', 'correct-answer');
 
         // 사용자가 선택한 답변과 정답 비교
         const correctAnswer = question.answer[index];
@@ -386,18 +416,22 @@ function submitHotspotAnswer(question) {
         }
     });
 
-    // 제출 버튼 제거
-    const submitBtn = document.querySelector('.submit-hotspot-btn');
-    if (submitBtn) submitBtn.remove();
-
     // 피드백 표시
+    const firstAttempt = firstAttempts.get(question.id);
     elements.quizFeedback.classList.remove('hidden');
     elements.quizFeedback.classList.toggle('correct', isCorrect);
     elements.quizFeedback.classList.toggle('incorrect', !isCorrect);
 
-    elements.feedbackContent.textContent = isCorrect ?
+    let feedbackText = isCorrect ?
         `✓ 정답입니다! (${correctCount}/${question.statements.length})` :
         `✗ ${correctCount}/${question.statements.length}개 정답`;
+
+    // Add first attempt indicator if this is a re-attempt
+    if (firstAttempt && JSON.stringify(firstAttempt.userAnswer) !== JSON.stringify(userAnswers)) {
+        feedbackText += ` (처음 시도: ${firstAttempt.isCorrect ? '정답' : '오답'})`;
+    }
+
+    elements.feedbackContent.textContent = feedbackText;
     elements.quizExplanation.innerHTML = (question.explanation || '설명이 제공되지 않았습니다.').replace(/\n/g, '<br>');
 
     updateUI();
@@ -456,12 +490,15 @@ function displayMatchingQuestion(question) {
             select.appendChild(option);
         });
 
-        // 이미 답변한 경우
-        if (answeredQuestions.has(question.id)) {
-            select.disabled = true;
+        // 이미 답변한 경우 - 정답 표시하지만 재선택 가능
+        const firstAttempt = firstAttempts.get(question.id);
+        if (firstAttempt) {
             select.value = item.answer;
-            if (select.value === item.answer) {
-                selectDiv.classList.add('correct-answer');
+            selectDiv.classList.add('correct-answer');
+
+            // Show user's previous answer if incorrect
+            if (firstAttempt.userAnswer && firstAttempt.userAnswer[index] && firstAttempt.userAnswer[index] !== item.answer) {
+                selectDiv.classList.add('wrong-answer');
             }
         }
 
@@ -481,14 +518,12 @@ function displayMatchingQuestion(question) {
 
     container.appendChild(matchingContainer);
 
-    // 제출 버튼
-    if (!answeredQuestions.has(question.id)) {
-        const submitBtn = document.createElement('button');
-        submitBtn.className = 'option-btn submit-matching-btn';
-        submitBtn.textContent = '제출';
-        submitBtn.addEventListener('click', () => submitMatchingAnswer(question));
-        container.appendChild(submitBtn);
-    }
+    // 제출 버튼 (항상 표시)
+    const submitBtn = document.createElement('button');
+    submitBtn.className = 'option-btn submit-matching-btn';
+    submitBtn.textContent = firstAttempts.has(question.id) ? '다시 제출' : '제출';
+    submitBtn.addEventListener('click', () => submitMatchingAnswer(question));
+    container.appendChild(submitBtn);
 }
 
 function submitMatchingAnswer(question) {
@@ -521,16 +556,29 @@ function submitMatchingAnswer(question) {
 
     const isCorrect = correctCount === question.matchingItems.length;
 
+    // Track first attempt only
+    if (!firstAttempts.has(question.id)) {
+        firstAttempts.set(question.id, {
+            isCorrect: isCorrect,
+            userAnswer: userAnswers
+        });
+
+        // Update score only on first attempt
+        if (isCorrect) score++;
+    }
+
     // 답변 표시
     answeredQuestions.add(question.id);
-    if (isCorrect) score++;
 
     // UI 업데이트
     question.matchingItems.forEach((item, index) => {
         const select = document.getElementById(`matching-${index}`);
         const selectDiv = select.parentElement;
 
-        select.disabled = true;
+        // Remove previous styling
+        selectDiv.classList.remove('correct-answer', 'wrong-answer');
+        const existingLabel = selectDiv.querySelector('.correct-answer-label');
+        if (existingLabel) existingLabel.remove();
 
         // 정답 표시
         if (userAnswers[index] === item.answer) {
@@ -545,18 +593,22 @@ function submitMatchingAnswer(question) {
         }
     });
 
-    // 제출 버튼 제거
-    const submitBtn = document.querySelector('.submit-matching-btn');
-    if (submitBtn) submitBtn.remove();
-
     // 피드백 표시
+    const firstAttempt = firstAttempts.get(question.id);
     elements.quizFeedback.classList.remove('hidden');
     elements.quizFeedback.classList.toggle('correct', isCorrect);
     elements.quizFeedback.classList.toggle('incorrect', !isCorrect);
 
-    elements.feedbackContent.textContent = isCorrect ?
+    let feedbackText = isCorrect ?
         `✓ 정답입니다! (${correctCount}/${question.matchingItems.length})` :
         `✗ ${correctCount}/${question.matchingItems.length}개 정답`;
+
+    // Add first attempt indicator if this is a re-attempt
+    if (firstAttempt && JSON.stringify(firstAttempt.userAnswer) !== JSON.stringify(userAnswers)) {
+        feedbackText += ` (처음 시도: ${firstAttempt.isCorrect ? '정답' : '오답'})`;
+    }
+
+    elements.feedbackContent.textContent = feedbackText;
     elements.quizExplanation.innerHTML = (question.explanation || '설명이 제공되지 않았습니다.').replace(/\n/g, '<br>');
 
     updateUI();
@@ -594,14 +646,16 @@ function displayDropdownQuestion(question) {
             select.appendChild(option);
         });
 
-        // 이미 답변한 경우
-        if (answeredQuestions.has(question.id)) {
-            select.disabled = true;
+        // 이미 답변한 경우 - 정답 표시하지만 재선택 가능
+        const firstAttempt = firstAttempts.get(question.id);
+        if (firstAttempt) {
             const correctAnswer = question.answer[dropdown.id];
             select.value = correctAnswer;
+            dropdownDiv.classList.add('correct-answer');
 
-            if (select.value === correctAnswer) {
-                dropdownDiv.classList.add('correct-answer');
+            // Show user's previous answer if incorrect
+            if (firstAttempt.userAnswer && firstAttempt.userAnswer[dropdown.id] && firstAttempt.userAnswer[dropdown.id] !== correctAnswer) {
+                dropdownDiv.classList.add('wrong-answer');
             }
         }
 
@@ -611,14 +665,12 @@ function displayDropdownQuestion(question) {
 
     container.appendChild(dropdownContainer);
 
-    // 제출 버튼
-    if (!answeredQuestions.has(question.id)) {
-        const submitBtn = document.createElement('button');
-        submitBtn.className = 'option-btn submit-dropdown-btn';
-        submitBtn.textContent = '제출';
-        submitBtn.addEventListener('click', () => submitDropdownAnswer(question));
-        container.appendChild(submitBtn);
-    }
+    // 제출 버튼 (항상 표시)
+    const submitBtn = document.createElement('button');
+    submitBtn.className = 'option-btn submit-dropdown-btn';
+    submitBtn.textContent = firstAttempts.has(question.id) ? '다시 제출' : '제출';
+    submitBtn.addEventListener('click', () => submitDropdownAnswer(question));
+    container.appendChild(submitBtn);
 }
 
 function submitDropdownAnswer(question) {
@@ -653,16 +705,29 @@ function submitDropdownAnswer(question) {
 
     const isCorrect = correctCount === totalCount;
 
+    // Track first attempt only
+    if (!firstAttempts.has(question.id)) {
+        firstAttempts.set(question.id, {
+            isCorrect: isCorrect,
+            userAnswer: userAnswers
+        });
+
+        // Update score only on first attempt
+        if (isCorrect) score++;
+    }
+
     // 답변 표시
     answeredQuestions.add(question.id);
-    if (isCorrect) score++;
 
     // UI 업데이트
     question.dropdowns.forEach((dropdown) => {
         const select = document.getElementById(`dropdown-${dropdown.id}`);
         const dropdownDiv = select.parentElement;
 
-        select.disabled = true;
+        // Remove previous styling
+        dropdownDiv.classList.remove('correct-answer', 'wrong-answer');
+        const existingLabel = dropdownDiv.querySelector('.correct-answer-label');
+        if (existingLabel) existingLabel.remove();
 
         // 정답 표시
         const correctAnswer = question.answer[dropdown.id];
@@ -679,18 +744,22 @@ function submitDropdownAnswer(question) {
         }
     });
 
-    // 제출 버튼 제거
-    const submitBtn = document.querySelector('.submit-dropdown-btn');
-    if (submitBtn) submitBtn.remove();
-
     // 피드백 표시
+    const firstAttempt = firstAttempts.get(question.id);
     elements.quizFeedback.classList.remove('hidden');
     elements.quizFeedback.classList.toggle('correct', isCorrect);
     elements.quizFeedback.classList.toggle('incorrect', !isCorrect);
 
-    elements.feedbackContent.textContent = isCorrect ?
+    let feedbackText = isCorrect ?
         `✓ 정답입니다!` :
         `✗ ${correctCount}/${totalCount}개 정답`;
+
+    // Add first attempt indicator if this is a re-attempt
+    if (firstAttempt && JSON.stringify(firstAttempt.userAnswer) !== JSON.stringify(userAnswers)) {
+        feedbackText += ` (처음 시도: ${firstAttempt.isCorrect ? '정답' : '오답'})`;
+    }
+
+    elements.feedbackContent.textContent = feedbackText;
     elements.quizExplanation.innerHTML = (question.explanation || '설명이 제공되지 않았습니다.').replace(/\n/g, '<br>');
 
     updateUI();
@@ -752,23 +821,29 @@ function submitMultipleChoice(question) {
     const isCorrect = selectedLetters.length === correctAnswers.length &&
         selectedLetters.every(letter => correctAnswers.includes(letter));
 
+    // Track first attempt only
+    if (!firstAttempts.has(question.id)) {
+        firstAttempts.set(question.id, {
+            isCorrect: isCorrect,
+            userAnswer: selectedLetters
+        });
+
+        // Update score only on first attempt
+        if (isCorrect) {
+            score++;
+        }
+    }
+
     // Mark as answered
     answeredQuestions.add(question.id);
 
-    // Update score
-    if (isCorrect) {
-        score++;
-    }
-
-    // Disable all buttons and show correct answers
+    // Update UI to show correct answers
     const allButtons = elements.optionsContainer.querySelectorAll('.option-btn');
     allButtons.forEach(btn => {
         if (btn.classList.contains('submit-btn')) {
-            btn.remove();
             return;
         }
 
-        btn.disabled = true;
         btn.classList.remove('selected');
 
         const letter = btn.dataset.letter;
@@ -782,14 +857,20 @@ function submitMultipleChoice(question) {
     });
 
     // Show feedback
+    const firstAttempt = firstAttempts.get(question.id);
     elements.quizFeedback.classList.remove('hidden');
     elements.quizFeedback.classList.toggle('correct', isCorrect);
     elements.quizFeedback.classList.toggle('incorrect', !isCorrect);
 
     const correctCount = selectedLetters.filter(l => correctAnswers.includes(l)).length;
-    elements.feedbackContent.textContent = isCorrect ?
-        '✓ 정답입니다!' :
-        `✗ ${correctCount}/${correctAnswers.length}개 정답`;
+    let feedbackText = isCorrect ? '✓ 정답입니다!' : `✗ ${correctCount}/${correctAnswers.length}개 정답`;
+
+    // Add first attempt indicator if this is a re-attempt
+    if (firstAttempt && firstAttempt.userAnswer.toString() !== selectedLetters.toString()) {
+        feedbackText += ` (처음 시도: ${firstAttempt.isCorrect ? '정답' : '오답'})`;
+    }
+
+    elements.feedbackContent.textContent = feedbackText;
     elements.quizExplanation.innerHTML = (question.explanation || '설명이 제공되지 않았습니다.').replace(/\n/g, '<br>');
 
     updateUI();
@@ -866,6 +947,7 @@ function shuffleQuestions() {
 
     // Reset quiz state
     answeredQuestions.clear();
+    firstAttempts.clear();
     score = 0;
 
     displayQuestion();
@@ -1069,8 +1151,8 @@ function updateUI() {
     const percentage = (progress / total) * 100;
     elements.progressBar.style.width = `${percentage}%`;
 
-    // Update score
-    const scorePercentage = total > 0 ? Math.round((score / answeredQuestions.size) * 100) || 0 : 0;
+    // Update score (based on first attempts only)
+    const scorePercentage = firstAttempts.size > 0 ? Math.round((score / firstAttempts.size) * 100) || 0 : 0;
     elements.scoreText.textContent = `${scorePercentage}%`;
 
     // Update navigation buttons
@@ -1147,14 +1229,12 @@ function displayDragDropQuestion(question) {
     dragDropContainer.appendChild(dropPanel);
     container.appendChild(dragDropContainer);
 
-    // Submit button
-    if (!answeredQuestions.has(question.id)) {
-        const submitBtn = document.createElement('button');
-        submitBtn.className = 'option-btn submit-btn submit-drag-drop-btn';
-        submitBtn.textContent = '제출';
-        submitBtn.addEventListener('click', () => submitDragDropAnswer(question));
-        container.appendChild(submitBtn);
-    }
+    // Submit button (항상 표시)
+    const submitBtn = document.createElement('button');
+    submitBtn.className = 'option-btn submit-btn submit-drag-drop-btn';
+    submitBtn.textContent = firstAttempts.has(question.id) ? '다시 제출' : '제출';
+    submitBtn.addEventListener('click', () => submitDragDropAnswer(question));
+    container.appendChild(submitBtn);
 }
 
 let draggedElement = null;
@@ -1226,10 +1306,14 @@ function submitDragDropAnswer(question) {
 
     // 모든 드롭존이 채워졌는지 확인
     let allFilled = true;
+    const userAnswers = [];
     dropZones.forEach(zone => {
         const droppedItem = zone.querySelector('.dropped-item');
         if (!droppedItem) {
             allFilled = false;
+            userAnswers.push(null);
+        } else {
+            userAnswers.push(droppedItem.dataset.option);
         }
     });
 
@@ -1244,41 +1328,43 @@ function submitDragDropAnswer(question) {
         const userAnswer = droppedItem ? droppedItem.dataset.option : '';
         const correctAnswer = zone.dataset.correctAnswer;
 
+        // Remove previous styling
+        zone.classList.remove('correct', 'incorrect');
+
         if (userAnswer === correctAnswer) {
             zone.classList.add('correct');
             correct++;
         } else {
             zone.classList.add('incorrect');
         }
+    });
 
-        // 드래그 비활성화
-        const dragOptions = document.querySelectorAll('.drag-option');
-        dragOptions.forEach(opt => {
-            opt.draggable = false;
-            opt.style.cursor = 'not-allowed';
+    // Track first attempt only
+    if (!firstAttempts.has(question.id)) {
+        firstAttempts.set(question.id, {
+            isCorrect: correct === total,
+            userAnswer: userAnswers
         });
 
-        // 클릭 제거 비활성화
-        if (droppedItem) {
-            droppedItem.style.cursor = 'default';
-            droppedItem.onclick = null;
+        // Update score only on first attempt
+        if (correct === total) {
+            score++;
         }
-    });
+    }
 
     // 점수 업데이트
     answeredQuestions.add(question.id);
-    if (correct === total) {
-        score++;
-    }
-
-    // 제출 버튼 제거
-    const submitBtn = document.querySelector('.submit-drag-drop-btn');
-    if (submitBtn) {
-        submitBtn.remove();
-    }
 
     // 피드백 표시
-    elements.feedbackContent.textContent = `${correct}/${total}개 정답`;
+    const firstAttempt = firstAttempts.get(question.id);
+    let feedbackText = `${correct}/${total}개 정답`;
+
+    // Add first attempt indicator if this is a re-attempt
+    if (firstAttempt && JSON.stringify(firstAttempt.userAnswer) !== JSON.stringify(userAnswers)) {
+        feedbackText += ` (처음 시도: ${firstAttempt.isCorrect ? '정답' : '오답'})`;
+    }
+
+    elements.feedbackContent.textContent = feedbackText;
     elements.quizExplanation.innerHTML = (question.explanation || '설명이 제공되지 않았습니다.').replace(/\n/g, '<br>');
     elements.quizFeedback.classList.remove('hidden');
     elements.quizFeedback.className = 'quiz-feedback ' + (correct === total ? 'correct' : 'incorrect');
