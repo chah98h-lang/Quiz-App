@@ -7627,7 +7627,7 @@
           "text": "Azure 포털 접속"
         }
       ],
-      "answer": "A",
+      "answer": "B",
       "explanation": "중지된(할당 취소된) VM은 오프라인 상태이며 Azure 호스트 서버에 마운트되지 않았습니다. VM을 시작하면 VM이 시작되기 전에 호스트 서버에 VM이 마운트됩니다. VM이 마운트되는 즉시 요금이 청구됩니다. 이러한 이유로 평가판이 만료된 후에는 VM을 시작할 수 없습니다.\n오답:\n → Azure Active Directory 사용자 계정에 대한 요금이 청구되지 않으므로 계속해서 계정을 만들 수 있습니다.\n → 이미 Azure에 저장된 데이터에 액세스할 수 있습니다.\n → Azure Portal에 액세스할 수 있습니다. 포털에서 만료된 구독을 다시 활성화하고 업그레이드할 수도 있습니다.",
       "questionType": "MULTIPLE_CHOICE"
     },
@@ -8141,7 +8141,7 @@
       "question": "다음 각 문장에 대해 문장이 사실이라면 예를 선택하십시오. 그렇지 않으면 아니요를 선택하십시오.",
       "options": [],
       "answer": [
-        "아니오",
+        "예",
         "예",
         "아니오"
       ],
@@ -8338,7 +8338,7 @@
     {
       "id": 348,
       "original_number": "348",
-      "question": "You have 1,000 virtual machines hosted on the Hyper-V hosts in a data center.\nYou plan to migrate all the virtual machines to an Azure pay-as-you-go subscription.\nYou need to identify which expenditure model to use for the planned Azure solution.\nWhich expenditure model should you identify?",
+      "question": "데이터 센터의 Hyper-V 호스트에 호스팅된 1,000개의 가상 머신이 있습니다.\n모든 가상 머신을 Azure pay-as-you-go 구독으로 마이그레이션할 계획입니다.\n계획된 Azure 솔루션에 사용할 지출 모델을 식별해야 합니다. 어떤 지출 모델을 식별해야 합니까?",
       "options": [
         {
           "letter": "A",
@@ -8700,7 +8700,7 @@
     {
       "id": 365,
       "original_number": "365",
-      "question": "월간 가동 시간 백분율을 어떻게 계산해야 합니까? 답하려면 답변 영역에서 적절한 옵션을 선택하십시오.",
+      "question": "월간 가동 시간 백분율을 어떻게 계산해야 합니까? 답하려면 답변 영역에서 적절한 옵션을 선택하십시오.\n\n A ÷ B x C",
       "options": [],
       "answer": "",
       "explanation": " \"최대 사용 가능 시간(분)\"은 청구 월 동안 누적된 총 시간입니다.\n\"가동 중단 시간(분)\"은 시스템을 사용할 수 없는 최대 사용 가능 시간의 일부인 누적된 총 시간입니다.\n서비스의 \"월간 가동 시간 백분율(분)\"은 최대 사용 가능 시간에서 가동 중단 시간을 뺀 후 최대 사용 가능 시간 x 100으로 나누어 계산합니다.\n월간 가동 시간 백분율은 다음 공식으로 표현됩니다.\n월간 가동 시간 % = (최대 사용 가능 시간 - 가동 중단 시간) / 최대 사용 가능 시간 x 100.",
@@ -8808,7 +8808,7 @@
     {
       "id": 369,
       "original_number": "369",
-      "question": "이 질문은 밑줄이 그어진 텍스트를 평가하여 올바른지 확인해야 합니다.\nsupport.microsoft.com에서 Azure 지웛 요청을 만들 수 있습니다.\n지침: 밑줄이 그어진 텍스트를 검토합니다. 문장이 올바른 경우 `변경 필요 없음`을 선택합니다. 문장이 틀린 경우 문장이 올바른 답변 선택지를 선택합니다.",
+      "question": "이 질문은 밑줄이 그어진 텍스트를 평가하여 올바른지 확인해야 합니다.\nsupport.microsoft.com에서 Azure 지원 요청을 만들 수 있습니다.\n지침: 밑줄이 그어진 텍스트를 검토합니다. 문장이 올바른 경우 `변경 필요 없음`을 선택합니다. 문장이 틀린 경우 문장이 올바른 답변 선택지를 선택합니다.",
       "options": [
         {
           "letter": "A",
@@ -8878,26 +8878,26 @@
     {
       "id": 372,
       "original_number": "372",
-      "question": "______ 는 온프레미스 Microsoft SQL 서버를 Azure로 마이그레이션함으로써 전력 소비 감소에 따른 비용 절감을 계산할 수 있습니다.",
+      "question": "퍼블릭 프리뷰 상태인 모든 Azure 서비스는 ______",
       "options": [
         {
           "letter": "A",
-          "text": "Azure Migrate: Server Assessment 도구"
+          "text": "어떠한 문서도 제공되지 않는다"
         },
         {
           "letter": "B",
-          "text": "Azure 총소유비용(TCO) 계산기"
+          "text": "Azure CLI에서만 구성할 수 있다"
         },
         {
           "letter": "C",
-          "text": "데이터베이스 마이그레이션 도우미"
+          "text": "서비스 수준 계약(SLA)에서 제외된다"
         },
         {
           "letter": "D",
-          "text": "Azure 가격 계산기"
+          "text": "Azure 포털에서만 구성할 수 있다"
         }
       ],
-      "answer": "B",
+      "answer": "C",
       "explanation": "미리 보기 기능은 일반 Azure 약관을 보완하는 추가 약관에 동의하는 조건 하에 제공됩니다. 추가 약관은 다음과 같이 명시합니다.\n미리 보기는 \"있는 그대로\", \"모든 오류 포함\" 및 \"사용 가능한 대로\" 제공되며 서비스 수준 계약 및\n제한 보증에서 제외됩니다.",
       "questionType": "MULTIPLE_CHOICE"
     },
@@ -8949,7 +8949,7 @@
           "text": "Azure 어드바이저"
         }
       ],
-      "answer": "A",
+      "answer": "D",
       "explanation": "",
       "questionType": "MULTIPLE_CHOICE"
     },
@@ -9027,7 +9027,7 @@
           "text": "민첩성"
         }
       ],
-      "answer": "C",
+      "answer": "D",
       "explanation": "",
       "questionType": "MULTIPLE_CHOICE"
     },
@@ -9125,7 +9125,7 @@
       "question": "다음 각 문장에 대해 문장이 사실이라면 예를 선택하십시오. 그렇지 않으면 아니요를 선택하십시오.",
       "options": [],
       "answer": [
-        "아니오",
+        "예",
         "예",
         "예"
       ],
@@ -9229,7 +9229,7 @@
         },
         {
           "description": "가상 머신에 RAM 또는 CPU를 추가하여 컴퓨팅 용량을 동적으로 증가시킬 수 있습니다",
-          "correctAnswer": "Scalability"
+          "correctAnswer": "확장성"
         }
       ],
       "options": [],
@@ -9362,7 +9362,7 @@
           "text": "Hyper-V 호스트"
         }
       ],
-      "answer": "A",
+      "answer": "C",
       "explanation": "",
       "questionType": "MULTIPLE_CHOICE"
     },
@@ -10236,7 +10236,7 @@
     {
       "id": 425,
       "original_number": "425",
-      "question": "______은(는) 서비스 장애가 발생한 경우에도 클라우드 리소스에 대한 접근을 보장합니다.",
+      "question": "데스크톱 애플리케이션은 Azure와 상호 작용하고 리소스를 관리하기 위해 무엇을 사용해야 합니까?",
       "options": [
         {
           "letter": "A",
@@ -10592,9 +10592,13 @@
         {
           "letter": "C",
           "text": "Azure 크레딧으로 사용할 수 있는 쿠폰 코드를 보낼"
+        },
+        {
+          "letter": "D",
+          "text": "Azure 크레딧으로 교환할 수 있는 쿠폰 코드를 보낼"
         }
       ],
-      "answer": "B",
+      "answer": "C",
       "explanation": "",
       "questionType": "HOTSPOT"
     },
@@ -11165,7 +11169,7 @@
       "options": [],
       "answer": "B",
       "explanation": "",
-      "questionType": "MULTIPLE_CHOICE",
+      "questionType": "MATCHING",
       "matchingItems": [
         {
           "item": "Azure 서비스의 상태를 모니터링한다",
@@ -11376,15 +11380,15 @@
       ],
       "dropZones": [
         {
-          "description": "Provides the most control of a cloud environment.",
+          "description": "클라우드 환경에 대해 가장 많은 제어 권한을 제공한다.",
           "correctAnswer": "Infrastructure as a service (IaaS)"
         },
         {
-          "description": "Provides the most control of a database design without having to maintain the operating system.",
+          "description": "운영 체제를 유지·관리하지 않고도 데이터베이스 설계에 대해 가장 많은 제어 권한을 제공한다.",
           "correctAnswer": "Platform as a service (PaaS)"
         },
         {
-          "description": "Used to host Azure virtual machines.",
+          "description": "Azure 가상 머신을 호스팅하는 데 사용된다.",
           "correctAnswer": "Infrastructure as a service (IaaS)"
         }
       ],
