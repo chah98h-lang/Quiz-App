@@ -142,24 +142,24 @@ function displayQuestion() {
     const question = shuffledQuestions[currentQuestionIndex];
     if (!question) return;
 
-    // Update question
-    elements.quizQuestionNumber.textContent = `Q${question.id}`;
+    // Update question number with status badge
+    const firstAttempt = firstAttempts.get(question.id);
+    if (firstAttempt) {
+        const statusBadge = firstAttempt.isCorrect ?
+            '<span style="color: #10b981; font-size: 0.9em; margin-left: 0.5rem;">정답</span>' :
+            '<span style="color: #ef4444; font-size: 0.9em; margin-left: 0.5rem;">오답</span>';
+        elements.quizQuestionNumber.innerHTML = `Q${question.id} ${statusBadge}`;
+    } else {
+        elements.quizQuestionNumber.textContent = `Q${question.id}`;
+    }
+
     elements.quizQuestionText.innerHTML = question.question.replace(/\n/g, '<br>');
 
     // Clear previous options
     elements.optionsContainer.innerHTML = '';
 
-    // Show feedback if previously answered
-    const firstAttempt = firstAttempts.get(question.id);
-    if (firstAttempt) {
-        elements.quizFeedback.classList.remove('hidden');
-        elements.quizFeedback.classList.toggle('correct', firstAttempt.isCorrect);
-        elements.quizFeedback.classList.toggle('incorrect', !firstAttempt.isCorrect);
-        elements.feedbackContent.textContent = firstAttempt.isCorrect ? '✓ 처음 시도: 정답' : '✗ 처음 시도: 오답';
-        elements.quizExplanation.innerHTML = (question.explanation || '설명이 제공되지 않았습니다.').replace(/\n/g, '<br>');
-    } else {
-        elements.quizFeedback.classList.add('hidden');
-    }
+    // Hide feedback when displaying question
+    elements.quizFeedback.classList.add('hidden');
 
     // Display question image if exists
     const existingImage = elements.quizCard.querySelector('.question-image');
@@ -201,25 +201,7 @@ function displayQuestion() {
             button.textContent = `${option.letter}. ${option.text}`;
             button.dataset.letter = option.letter;
 
-            // Check if already answered - show correct answers but allow re-answering
-            const firstAttempt = firstAttempts.get(question.id);
-            if (firstAttempt) {
-                // 복수 정답 확인
-                const correctAnswers = question.answer.includes('\n') || question.answer.includes(',') ?
-                    question.answer.split(/[\n,]/).map(a => a.trim()) : [question.answer];
-
-                if (correctAnswers.includes(option.letter)) {
-                    button.classList.add('correct');
-                }
-
-                // Highlight user's previous answer
-                const userAnswers = Array.isArray(firstAttempt.userAnswer) ? firstAttempt.userAnswer : [firstAttempt.userAnswer];
-                if (userAnswers.includes(option.letter) && !correctAnswers.includes(option.letter)) {
-                    button.classList.add('incorrect');
-                }
-            }
-
-            // Always allow clicking to select
+            // Always allow clicking to select (no visual indicators on options)
             button.addEventListener('click', () => toggleSelection(button, question));
 
             elements.optionsContainer.appendChild(button);
@@ -290,28 +272,8 @@ function displayHotspotQuestion(question) {
         noDiv.appendChild(noInput);
         row.appendChild(noDiv);
 
-        // 이미 답변한 경우 표시 (정답 표시하지만 재선택 가능)
-        const firstAttempt = firstAttempts.get(question.id);
-        if (firstAttempt) {
-            const correctAnswer = question.answer[index];
-            if (correctAnswer === '예') {
-                yesDiv.classList.add('correct-answer');
-            } else {
-                noDiv.classList.add('correct-answer');
-            }
-
-            // Show user's previous answer if incorrect
-            if (firstAttempt.userAnswer && firstAttempt.userAnswer[index]) {
-                const userAnswer = firstAttempt.userAnswer[index];
-                if (userAnswer !== correctAnswer) {
-                    if (userAnswer === '예') {
-                        yesDiv.classList.add('user-incorrect');
-                    } else {
-                        noDiv.classList.add('user-incorrect');
-                    }
-                }
-            }
-        }
+        // No visual indicators when displaying - clean state
+        // Users can select answers freely
 
         table.appendChild(row);
     });
@@ -490,17 +452,7 @@ function displayMatchingQuestion(question) {
             select.appendChild(option);
         });
 
-        // 이미 답변한 경우 - 정답 표시하지만 재선택 가능
-        const firstAttempt = firstAttempts.get(question.id);
-        if (firstAttempt) {
-            select.value = item.answer;
-            selectDiv.classList.add('correct-answer');
-
-            // Show user's previous answer if incorrect
-            if (firstAttempt.userAnswer && firstAttempt.userAnswer[index] && firstAttempt.userAnswer[index] !== item.answer) {
-                selectDiv.classList.add('wrong-answer');
-            }
-        }
+        // No visual indicators when displaying - clean state
 
         selectDiv.appendChild(select);
         itemRow.appendChild(selectDiv);
@@ -646,18 +598,7 @@ function displayDropdownQuestion(question) {
             select.appendChild(option);
         });
 
-        // 이미 답변한 경우 - 정답 표시하지만 재선택 가능
-        const firstAttempt = firstAttempts.get(question.id);
-        if (firstAttempt) {
-            const correctAnswer = question.answer[dropdown.id];
-            select.value = correctAnswer;
-            dropdownDiv.classList.add('correct-answer');
-
-            // Show user's previous answer if incorrect
-            if (firstAttempt.userAnswer && firstAttempt.userAnswer[dropdown.id] && firstAttempt.userAnswer[dropdown.id] !== correctAnswer) {
-                dropdownDiv.classList.add('wrong-answer');
-            }
-        }
+        // No visual indicators when displaying - clean state
 
         dropdownDiv.appendChild(select);
         dropdownContainer.appendChild(dropdownDiv);
